@@ -1,1 +1,61 @@
-
+[
+  {
+      "name": "RICHIRICHON",
+      "backgroundImage": "./fondo-estrellas.jpg",
+      "tournaments": [
+        {
+          "name": "Genuino Random",
+          "trophy": "./cup.png"
+        
+      ]
+  },
+  {
+    "name": "DYJ_BRIAN",
+    "backgroundImage": "./fondo-estrellas.jpg",
+    "tournaments": [
+      {
+        "name": "A ver si ganan algo",
+        "trophy": "./cup.png"
+      },
+      
+    ]
+  },
+  {
+    "name": "LOKI",
+    "backgroundImage": "./fondo-estrellas.jpg",
+    "tournaments": [
+      {
+        "name": "Dream Team Restricto",
+        "trophy": "./cup.png"
+      },
+     
+  },
+  {
+    "name": "MCL VEGA",
+    "backgroundImage": "./fondo-estrellas.jpg",
+    "image":"https://areajugones.sport.es/wp-content/uploads/2018/05/God-of-War.png",
+    "tournaments": [
+      {
+        "name": "Draft Dream Team",
+        "trophy": "./cup.png"
+      }
+  },
+  {
+    "name": "PABLO",
+    "backgroundImage": "./fondo-estrellas.jpg",
+    "tournaments": [
+      {
+        "name": "Eurocopa 2024",
+        "trophy": "./cup.png"
+      },
+      {
+        "name": "Genuino 2.0",
+        "trophy": "./cup.png"
+      },
+      {
+        "name": "Superliga 2025",
+        "trophy": "./league.png"
+      }
+    ]
+  }
+]
