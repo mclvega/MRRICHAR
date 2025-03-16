@@ -132,7 +132,7 @@
         async function fetchPlayers() {
             try {
                 const response = await fetch("./players.json"); // Cargar JSON
-                const response = await fetch(./teams.json");
+                const response = await fetch("./teams.json");
                 let data = await response.json();
                 data = data.sort((a, b) => b.tournaments.length - a.tournaments.length);
 
