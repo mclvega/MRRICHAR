@@ -293,6 +293,15 @@
       }
     ]
   },
+   "name": "AKA_DGO",
+    "backgroundImage": "./fondo-estrellas.jpg",
+    "tournaments": [
+      {
+        "name": "Potw Potm Pots",
+        "trophy": "./league.png"
+      }
+    ]
+  },
   {
     "name": "BRIAN",
     "backgroundImage": "./fondo-estrellas.jpg",
