@@ -24,7 +24,7 @@
           "trophy": "./cup.png"
         },
         {
-          "name": "Potw Potm Pots",
+          "name": "Potw Potm Pots 3.0",
           "trophy": "./cup.png"
         },
         {
@@ -133,31 +133,31 @@
     "backgroundImage": "./fondo-estrellas.jpg",
     "tournaments": [
       {
-        "name": "Copa 1",
+        "name": "Dream Team Restricto",
         "trophy": "./cup.png"
       },
       {
-        "name": "Copa 2",
+        "name": "Relampago Nocturno",
         "trophy": "./cup.png"
       },
       {
-        "name": "Copa 3",
+        "name": "UEFA",
         "trophy": "./cup.png"
       },
       {
-        "name": "Copa 4",
+        "name": "Full Asia",
         "trophy": "./cup.png"
       },
       {
-        "name": "Copa 5",
+        "name": "Relampago Nocturno",
         "trophy": "./cup.png"
       },
       {
-        "name": "Liga 1",
+        "name": "Liga A T1",
         "trophy": "./league.png"
       },
       {
-        "name": "Liga 2",
+        "name": "Liga A T3",
         "trophy": "./league.png"
       }
     ]
@@ -168,23 +168,23 @@
     "image":"https://areajugones.sport.es/wp-content/uploads/2018/05/God-of-War.png",
     "tournaments": [
       {
-        "name": "Copa 1",
+        "name": "Draft Dream Team",
         "trophy": "./cup.png"
       },
       {
-        "name": "Copa 2",
+        "name": "Relampago Nocturno",
         "trophy": "./cup.png"
       },
       {
-        "name": "Copa 3",
+        "name": "Puro GP",
         "trophy": "./cup.png"
       },
       {
-        "name": "Copa 4",
+        "name": "Potw Potm Pots 2.0",
         "trophy": "./cup.png"
       },
       {
-        "name": "Liga 1",
+        "name": "Liga B T5",
         "trophy": "./league.png"
       }
     ]
@@ -194,15 +194,15 @@
     "backgroundImage": "./fondo-estrellas.jpg",
     "tournaments": [
       {
-        "name": "Copa 1",
+        "name": "Eurocopa 2024",
         "trophy": "./cup.png"
       },
       {
-        "name": "Copa 2",
+        "name": "Genuino 2.0",
         "trophy": "./cup.png"
       },
       {
-        "name": "Liga 1",
+        "name": "Superliga 2025",
         "trophy": "./league.png"
       }
     ]
@@ -212,15 +212,15 @@
     "backgroundImage": "./fondo-estrellas.jpg",
     "tournaments": [
       {
-        "name": "Copa 1",
+        "name": "Relampago",
         "trophy": "./cup.png"
       },
       {
-        "name": "Copa 2",
+        "name": "1 por equipo",
         "trophy": "./cup.png"
       },
       {
-        "name": "Liga 1",
+        "name": "Liga B T2",
         "trophy": "./league.png"
       }
     ]
@@ -230,11 +230,11 @@
     "backgroundImage": "./fondo-estrellas.jpg",
     "tournaments": [
       {
-        "name": "Copa 1",
+        "name": "Equipos Full + Epic",
         "trophy": "./cup.png"
       },
       {
-        "name": "Liga 1",
+        "name": "Liga B T6",
         "trophy": "./league.png"
       }
     ]
@@ -244,7 +244,7 @@
     "backgroundImage": "./fondo-estrellas.jpg",
     "tournaments": [
       {
-        "name": "Copa 1",
+        "name": "Tipo de cartas",
         "trophy": "./cup.png"
       }
     ]
@@ -254,7 +254,7 @@
     "backgroundImage": "./fondo-estrellas.jpg",
     "tournaments": [
       {
-        "name": "Liga 1",
+        "name": "Copa Liga T1",
         "trophy": "./league.png"
       }
     ]
@@ -264,11 +264,11 @@
     "backgroundImage": "./fondo-estrellas.jpg",
     "tournaments": [
       {
-        "name": "Liga 1",
+        "name": "Liga B T3",
         "trophy": "./league.png"
       },
       {
-        "name": "Liga 2",
+        "name": "Copa Liga T3",
         "trophy": "./league.png"
       }
     ]
@@ -278,7 +278,7 @@
     "backgroundImage": "./fondo-estrellas.jpg",
     "tournaments": [
       {
-        "name": "Liga 1",
+        "name": "Copa Liga NTDC T5",
         "trophy": "./league.png"
       }
     ]
@@ -288,7 +288,7 @@
     "backgroundImage": "./fondo-estrellas.jpg",
     "tournaments": [
       {
-        "name": "Liga 1",
+        "name": "Copa Superliga NTDC",
         "trophy": "./league.png"
       }
     ]
@@ -298,7 +298,7 @@
     "backgroundImage": "./fondo-estrellas.jpg",
     "tournaments": [
       {
-        "name": "Liga 1",
+        "name": "Liga B T4",
         "trophy": "./league.png"
       }
     ]
