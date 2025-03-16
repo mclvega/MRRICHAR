@@ -166,15 +166,18 @@
                 if (filteredTournaments.length === 0) return; // No mostrar si el jugador no tiene torneos que coincidan
 
                 // Sección para torneos individuales
-                const individualSection = document.createElement("div");
-                individualSection.classList.add("player-section");
-                individualSection.style.background = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${player.backgroundImage || 'default.jpg'})`;
-                individualSection.style.backgroundSize = "cover";
-                individualSection.style.backgroundPosition = "center";
+                if (filteredTournaments.length === 0) return; // No mostrar si el jugador no tiene torneos que coincidan
+
+                const section = document.createElement("div");
+                section.classList.add("player-section");
+                section.style.background = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${player.backgroundImage || 'default.jpg'})`;
+                section.style.backgroundSize = "cover";
+                section.style.backgroundPosition = "center";
 
                 const playerDetails = document.createElement("div");
                 playerDetails.classList.add("player-details");
 
+                // Imagen del jugador encima del nombre
                 const playerImage = document.createElement("img");
                 playerImage.src = player.image || "default.jpg";
                 playerImage.classList.add("player-image");
