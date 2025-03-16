@@ -294,16 +294,6 @@
     ]
   },
   {
-   "name": "AKA_DGO",
-    "backgroundImage": "./fondo-estrellas.jpg",
-    "tournaments": [
-      {
-        "name": "Potw Potm Pots",
-        "trophy": "./league.png"
-      }
-    ]
-  },
-  {
     "name": "BRIAN",
     "backgroundImage": "./fondo-estrellas.jpg",
     "tournaments": [
@@ -312,5 +302,36 @@
         "trophy": "./league.png"
       }
     ]
-  }
+  },
+  {
+   "name": "AKA_DGO",
+    "backgroundImage": "./fondo-estrellas.jpg",
+    "tournaments": [
+      {
+        "name": "Potw Potm Pots",
+        "trophy": "./cup.png"
+      }
+    ]
+  },
+  {
+   "name": "ELCHEJOTAJOTA",
+    "backgroundImage": "./fondo-estrellas.jpg",
+    "tournaments": [
+      {
+        "name": "5 USD",
+        "trophy": "./cup.png"
+      }
+    ]
+  },
+  {
+   "name": "GVDIABLO",
+    "backgroundImage": "./fondo-estrellas.jpg",
+    "tournaments": [
+      {
+        "name": "Dream Team",
+        "trophy": "./cup.png"
+      }
+    ]
+  },
+
 ]
