@@ -91,39 +91,39 @@
     "backgroundImage": "./fondo-estrellas.jpg",
     "tournaments": [
       {
-        "name": "Copa 1",
+        "name": "A ver si ganan algo",
         "trophy": "./cup.png"
       },
       {
-        "name": "Copa 2",
+        "name": "+30",
         "trophy": "./cup.png"
       },
       {
-        "name": "Copa 3",
+        "name": "Paises Combinados",
         "trophy": "./cup.png"
       },
       {
-        "name": "Copa 4",
+        "name": "Relampago Nocturno",
         "trophy": "./cup.png"
       },
       {
-        "name": "Copa 5",
+        "name": "Destacados & Memorables",
         "trophy": "./cup.png"
       },
       {
-        "name": "Liga 1",
+        "name": "Liga A T5",
         "trophy": "./league.png"
       },
       {
-        "name": "Liga 2",
+        "name": "Copa Liga QB T5",
         "trophy": "./league.png"
       },
       {
-        "name": "Liga 3",
+        "name": "Liga A T6",
         "trophy": "./league.png"
       },
       {
-        "name": "Liga 4",
+        "name": "Copa Liga QB T6",
         "trophy": "./league.png"
       }
     ]
