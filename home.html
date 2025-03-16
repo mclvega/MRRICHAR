@@ -128,14 +128,12 @@
         
     </div>
         
-    <script>
+  <script>
         async function fetchPlayers() {
             try {
                 const response = await fetch("./players.json"); // Cargar JSON
-            
                 let data = await response.json();
                 data = data.sort((a, b) => b.tournaments.length - a.tournaments.length);
-
                 return data;
             } catch (error) {
                 console.error("Error al cargar los jugadores:", error);
@@ -144,35 +142,39 @@
         }
 
         async function generatePlayers() {
-            const container = document.getElementById("players-container");
-            container.innerHTML = "";
-        
+            const individualContainer = document.getElementById("individual-players-container");
+            const cooperativeContainer = document.getElementById("cooperative-players-container");
+            individualContainer.innerHTML = "";
+            cooperativeContainer.innerHTML = "";
 
             const searchPlayer = document.getElementById("searchPlayer").value.toLowerCase();
             const searchTournament = document.getElementById("searchTournament").value.toLowerCase();
 
+            const searchPlayerCoop = document.getElementById("searchPlayerCoop").value.toLowerCase();
+            const searchTournamentCoop = document.getElementById("searchTournamentCoop").value.toLowerCase();
+
             const players = await fetchPlayers();
 
             players.forEach(player => {
-                if (searchPlayer && !player.name.toLowerCase().includes(searchPlayer)) return;
+                if (searchPlayer && !player.name.toLowerCase().includes(searchPlayer) && searchPlayerCoop && !player.name.toLowerCase().includes(searchPlayerCoop)) return;
 
-                // Filtrar torneos dentro del jugador
                 const filteredTournaments = player.tournaments.filter(tournament => 
-                    searchTournament === "" || tournament.name.toLowerCase().includes(searchTournament)
+                    (searchTournament === "" || tournament.name.toLowerCase().includes(searchTournament)) ||
+                    (searchTournamentCoop === "" || tournament.name.toLowerCase().includes(searchTournamentCoop))
                 );
 
                 if (filteredTournaments.length === 0) return; // No mostrar si el jugador no tiene torneos que coincidan
 
-                const section = document.createElement("div");
-                section.classList.add("player-section");
-                section.style.background = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${player.backgroundImage || 'default.jpg'})`;
-                section.style.backgroundSize = "cover";
-                section.style.backgroundPosition = "center";
+                // Sección para torneos individuales
+                const individualSection = document.createElement("div");
+                individualSection.classList.add("player-section");
+                individualSection.style.background = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${player.backgroundImage || 'default.jpg'})`;
+                individualSection.style.backgroundSize = "cover";
+                individualSection.style.backgroundPosition = "center";
 
                 const playerDetails = document.createElement("div");
                 playerDetails.classList.add("player-details");
 
-                // Imagen del jugador encima del nombre
                 const playerImage = document.createElement("img");
                 playerImage.src = player.image || "default.jpg";
                 playerImage.classList.add("player-image");
@@ -187,35 +189,89 @@
                 row.classList.add("row", "m-1");
 
                 filteredTournaments.forEach(tournament => {
-                    const col = document.createElement("div");
-                    col.classList.add("col");
+                    if (tournament.type === 'individual') {
+                        const col = document.createElement("div");
+                        col.classList.add("col");
 
-                    const div = document.createElement("div");
-                    div.classList.add("d-flex", "flex-column", "align-items-center");
+                        const div = document.createElement("div");
+                        div.classList.add("d-flex", "flex-column", "align-items-center");
 
-                    const trophy = document.createElement("img");
-                    trophy.src = tournament.trophy;
-                    trophy.classList.add("trophy-img");
-                    div.appendChild(trophy);
+                        const trophy = document.createElement("img");
+                        trophy.src = tournament.trophy;
+                        trophy.classList.add("trophy-img");
+                        div.appendChild(trophy);
 
-                    const name = document.createElement("span");
-                    name.classList.add("tournament");
-                    name.textContent = tournament.name;
+                        const name = document.createElement("span");
+                        name.classList.add("tournament");
+                        name.textContent = tournament.name;
 
-                    div.appendChild(name);
-                    col.appendChild(div);
-                    row.appendChild(col);
+                        div.appendChild(name);
+                        col.appendChild(div);
+                        row.appendChild(col);
+                    }
                 });
 
                 playerDetails.appendChild(row);
-                section.appendChild(playerDetails);
-                container.appendChild(section);
+                individualSection.appendChild(playerDetails);
+                individualContainer.appendChild(individualSection);
+
+                // Sección para torneos cooperativos
+                const cooperativeSection = document.createElement("div");
+                cooperativeSection.classList.add("player-section");
+                cooperativeSection.style.background = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${player.backgroundImage || 'default.jpg'})`;
+                cooperativeSection.style.backgroundSize = "cover";
+                cooperativeSection.style.backgroundPosition = "center";
+
+                const coopPlayerDetails = document.createElement("div");
+                coopPlayerDetails.classList.add("player-details");
+
+                const coopPlayerImage = document.createElement("img");
+                coopPlayerImage.src = player.image || "default.jpg";
+                coopPlayerImage.classList.add("player-image");
+
+                const coopTitle = document.createElement("h5");
+                coopTitle.textContent = player.name;
+
+                coopPlayerDetails.appendChild(coopPlayerImage);
+                coopPlayerDetails.appendChild(coopTitle);
+
+                const coopRow = document.createElement("div");
+                coopRow.classList.add("row", "m-1");
+
+                filteredTournaments.forEach(tournament => {
+                    if (tournament.type === 'cooperative') {
+                        const coopCol = document.createElement("div");
+                        coopCol.classList.add("col");
+
+                        const coopDiv = document.createElement("div");
+                        coopDiv.classList.add("d-flex", "flex-column", "align-items-center");
+
+                        const coopTrophy = document.createElement("img");
+                        coopTrophy.src = tournament.trophy;
+                        coopTrophy.classList.add("trophy-img");
+                        coopDiv.appendChild(coopTrophy);
+
+                        const coopName = document.createElement("span");
+                        coopName.classList.add("tournament");
+                        coopName.textContent = tournament.name;
+
+                        coopDiv.appendChild(coopName);
+                        coopCol.appendChild(coopDiv);
+                        coopRow.appendChild(coopCol);
+                    }
+                });
+
+                coopPlayerDetails.appendChild(coopRow);
+                cooperativeSection.appendChild(coopPlayerDetails);
+                cooperativeContainer.appendChild(cooperativeSection);
             });
         }
 
         // Filtrado en tiempo real
         document.getElementById("searchPlayer").addEventListener("input", generatePlayers);
         document.getElementById("searchTournament").addEventListener("input", generatePlayers);
+        document.getElementById("searchPlayerCoop").addEventListener("input", generatePlayers);
+        document.getElementById("searchTournamentCoop").addEventListener("input", generatePlayers);
 
         // Cargar jugadores al inicio
         document.addEventListener("DOMContentLoaded", generatePlayers);
