@@ -8,5 +8,15 @@
         "name": "Liga 1",
         "winners": ["Equipo A", "Equipo B", "Equipo C", "Equipo D", "Equipo E"],
         "backgroundImage": "https://images.unsplash.com/photo-1521412644187-c49fa049e84d"
+    },
+    {
+        "name": "Liga 1",
+        "winners": ["Equipo A", "Equipo B", "Equipo C", "Equipo D", "Equipo E"],
+        "backgroundImage": "https://images.unsplash.com/photo-1521412644187-c49fa049e84d"
+    },
+    {
+        "name": "Liga 1",
+        "winners": ["Equipo A", "Equipo B", "Equipo C", "Equipo D", "Equipo E"],
+        "backgroundImage": "https://images.unsplash.com/photo-1521412644187-c49fa049e84d"
     }
 ]
