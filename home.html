@@ -98,15 +98,20 @@
                 <a class="nav-link" id="cooperative-tab" data-toggle="tab" href="#cooperative" role="tab" aria-controls="cooperative" aria-selected="false">Cooperativo</a>
             </li>
         </ul>
-        <div class="row mb-3">
-        <div class="col m-1 ">
-            <input type="text" id="searchPlayer" class="form-control" placeholder="Buscar por jugador...">
-        </div>
-        <div class="col m-1 ">
-            <input type="text" id="searchTournament" class="form-control" placeholder="Buscar por torneo...">
-        </div>
-        </div>
-        <div id="players-container"></div>
+        <div class="tab-content mt-3" id="myTabContent">
+            <!-- Sección Individual -->
+            <div class="tab-pane fade show active" id="individual" role="tabpanel" aria-labelledby="individual-tab">
+                <div class="row mb-3">
+                    <div class="col m-1">
+                        <input type="text" id="searchPlayer" class="form-control" placeholder="Buscar por jugador...">
+                    </div>
+                    <div class="col m-1">
+                        <input type="text" id="searchTournament" class="form-control" placeholder="Buscar por torneo...">
+                    </div>
+                </div>
+               <div id="players-container"></div>
+            </div>
+        
     </div>
         
     <script>
