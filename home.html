@@ -90,62 +90,24 @@
             <img class="logo" src="./logo.png" alt="Logo">
             <h1><strong>Campeones de la Comunidad</strong></h1> 
         </div>
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link active" id="individual-tab" data-toggle="tab" href="#individual" role="tab" aria-controls="individual" aria-selected="true">Individual</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="cooperative-tab" data-toggle="tab" href="#cooperative" role="tab" aria-controls="cooperative" aria-selected="false">Cooperativo</a>
-            </li>
-        </ul>
-        <div class="tab-content mt-3" id="myTabContent">
-            <!-- Sección Individual -->
-            <div class="tab-pane fade show active" id="individual" role="tabpanel" aria-labelledby="individual-tab">
-                <div class="row mb-3">
-                    <div class="col m-1">
-                        <input type="text" id="searchPlayer" class="form-control" placeholder="Buscar por jugador...">
-                    </div>
-                    <div class="col m-1">
-                        <input type="text" id="searchTournament" class="form-control" placeholder="Buscar por torneo...">
-                    </div>
-                </div>
-               <div id="players-container"></div>
-            </div>
-        <!-- Sección Cooperativo -->
-            <div class="tab-pane fade" id="cooperative" role="tabpanel" aria-labelledby="cooperative-tab">
-                <div class="row mb-3">
-                    <div class="col m-1">
-                        <input type="text" id="searchPlayerCoop" class="form-control" placeholder="Buscar por jugador...">
-                    </div>
-                    <div class="col m-1">
-                        <input type="text" id="searchTournamentCoop" class="form-control" placeholder="Buscar por torneo...">
-                    </div>
-                </div>
-                <div id="cooperative-team-container"></div>
-            </div>
+        <div class="row mb-3">
+        <div class="col m-1 ">
+            <input type="text" id="searchPlayer" class="form-control" placeholder="Buscar por jugador...">
         </div>
+        <div class="col m-1 ">
+            <input type="text" id="searchTournament" class="form-control" placeholder="Buscar por torneo...">
+        </div>
+        </div>
+        <div id="players-container"></div>
     </div>
-        
-    </div>
-        
-  <script>
+
+    <script>
         async function fetchPlayers() {
             try {
                 const response = await fetch("./players.json"); // Cargar JSON
                 let data = await response.json();
                 data = data.sort((a, b) => b.tournaments.length - a.tournaments.length);
-                return data;
-            } catch (error) {
-                console.error("Error al cargar los jugadores:", error);
-                return [];
-            }
-        }
 
-       async function fetchTeams() {
-            try {
-                const response = await fetch("./teams.json"); // Cargar JSON
-                let data = await response.json();
-                data = data.sort((a, b) => b.tournaments.length - a.tournaments.length);
                 return data;
             } catch (error) {
                 console.error("Error al cargar los jugadores:", error);
@@ -155,15 +117,12 @@
 
         async function generatePlayers() {
             const container = document.getElementById("players-container");
-            const cooperativeContainer = document.getElementById("cooperative-team-container");
             container.innerHTML = "";
-            cooperativeContainer.innerHTML = "";
 
-             const searchPlayer = document.getElementById("searchPlayer").value.toLowerCase();
+            const searchPlayer = document.getElementById("searchPlayer").value.toLowerCase();
             const searchTournament = document.getElementById("searchTournament").value.toLowerCase();
 
             const players = await fetchPlayers();
-            const teams = await fetchTeams();
 
             players.forEach(player => {
                 if (searchPlayer && !player.name.toLowerCase().includes(searchPlayer)) return;
