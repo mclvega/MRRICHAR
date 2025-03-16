@@ -61,27 +61,27 @@
           "trophy": "./cup.png"
         },
         {
-          "name": "Liga 1",
+          "name": "Liga B T1",
           "trophy": "./league.png"
         },
         {
-          "name": "Liga 2",
+          "name": "Liga A T2",
           "trophy": "./league.png"
         },
         {
-          "name": "Liga 3",
+          "name": "Copa Liga T2",
           "trophy": "./league.png"
         },
         {
-          "name": "Liga 4",
+          "name": "Liga A T4",
           "trophy": "./league.png"
         },
         {
-          "name": "Liga 5",
+          "name": "Copa Liga T4",
           "trophy": "./league.png"
         },
         {
-          "name": "Liga 6",
+          "name": "Copa Liga NTDC T6",
           "trophy": "./league.png"
         }
       ]
