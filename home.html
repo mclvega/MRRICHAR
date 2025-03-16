@@ -18,6 +18,9 @@
         .container-box {
             background: rgba(0, 0, 0, 0.8);
             border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+            color: white;
         }
 
         .championship-section {
@@ -78,149 +81,60 @@
     </div>
 
     <script>
-        // Datos dinámicos con propiedades de fondo
-        const championships = [
-            {
-                name: "Torneo 1",
-                type: "cup",
-                winners: ["Jugador 1", "Jugador 2", "Jugador 3", "Jugador 4"],
-                backgroundColor: "#ff5733",
-                backgroundImage: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23",
-                trophy: "https://static.vecteezy.com/system/resources/previews/025/273/596/non_2x/trophy-cup-sport-award-boxing-trophy-generative-ai-free-png.png"
-            },
-            {
-                name: "Liga 1",
-                type: "league",
-                winners: ["Equipo A", "Equipo B", "Equipo C", "Equipo D", "Equipo E"],
-                backgroundColor: "#3498db",
-                backgroundImage: "https://images.unsplash.com/photo-1521412644187-c49fa049e84d",
-                trophy: "https://upload.wikimedia.org/wikipedia/commons/5/56/Bulgarian_Republican_Champ_Trophy.png"
-            },
-            {
-                name: "Torneo 2",
-                type: "cup",
-                winners: ["Jugador X", "Jugador Y", "Jugador Z"],
-                backgroundColor: "#2ecc71",
-                backgroundImage: "https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a",
-                trophy: "https://static.vecteezy.com/system/resources/previews/025/273/596/non_2x/trophy-cup-sport-award-boxing-trophy-generative-ai-free-png.png"
-            },
-            {
-                name: "Torneo 2",
-                type: "cup",
-                winners: ["Jugador X", "Jugador Y", "Jugador Z"],
-                backgroundColor: "#2ecc71",
-                backgroundImage: "https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a",
-                trophy: "https://static.vecteezy.com/system/resources/previews/025/273/596/non_2x/trophy-cup-sport-award-boxing-trophy-generative-ai-free-png.png"
-            },
-            {
-                name: "Torneo 2",
-                type: "cup",
-                winners: ["Jugador X", "Jugador Y", "Jugador Z"],
-                backgroundColor: "#2ecc71",
-                backgroundImage: "https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a",
-                trophy: "https://static.vecteezy.com/system/resources/previews/025/273/596/non_2x/trophy-cup-sport-award-boxing-trophy-generative-ai-free-png.png"
-            },
-            {
-                name: "Torneo 2",
-                type: "cup",
-                winners: ["Jugador X", "Jugador Y", "Jugador Z"],
-                backgroundColor: "#2ecc71",
-                backgroundImage: "https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a",
-                trophy: "https://static.vecteezy.com/system/resources/previews/025/273/596/non_2x/trophy-cup-sport-award-boxing-trophy-generative-ai-free-png.png"
-            },
-            {
-                name: "Torneo 2",
-                type: "cup",
-                winners: ["Jugador X", "Jugador Y", "Jugador Z"],
-                backgroundColor: "#2ecc71",
-                backgroundImage: "https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a",
-                trophy: "https://static.vecteezy.com/system/resources/previews/025/273/596/non_2x/trophy-cup-sport-award-boxing-trophy-generative-ai-free-png.png"
-            },
-            {
-                name: "Torneo 2",
-                type: "cup",
-                winners: ["Jugador X", "Jugador Y", "Jugador Z"],
-                backgroundColor: "#2ecc71",
-                backgroundImage: "https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a",
-                trophy: "https://static.vecteezy.com/system/resources/previews/025/273/596/non_2x/trophy-cup-sport-award-boxing-trophy-generative-ai-free-png.png"
-            },
-            {
-                name: "Torneo 2",
-                type: "cup",
-                winners: ["Jugador X", "Jugador Y", "Jugador Z"],
-                backgroundColor: "#2ecc71",
-                backgroundImage: "https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a",
-                trophy: "https://static.vecteezy.com/system/resources/previews/025/273/596/non_2x/trophy-cup-sport-award-boxing-trophy-generative-ai-free-png.png"
-            },
-            {
-                name: "Torneo 2",
-                type: "cup",
-                winners: ["Jugador X", "Jugador Y", "Jugador Z"],
-                backgroundColor: "#2ecc71",
-                backgroundImage: "https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a",
-                trophy: "https://static.vecteezy.com/system/resources/previews/025/273/596/non_2x/trophy-cup-sport-award-boxing-trophy-generative-ai-free-png.png"
-            },
-            {
-                name: "Torneo 2",
-                type: "cup",
-                winners: ["Jugador X", "Jugador Y", "Jugador Z"],
-                backgroundColor: "#2ecc71",
-                backgroundImage: "https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a",
-                trophy: "https://static.vecteezy.com/system/resources/previews/025/273/596/non_2x/trophy-cup-sport-award-boxing-trophy-generative-ai-free-png.png"
+        async function fetchChampionships() {
+            try {
+                const response = await fetch("./championships.json"); // Cargar JSON
+                const data = await response.json();
+                return data;
+            } catch (error) {
+                console.error("Error al cargar los torneos:", error);
+                return [];
             }
-        ];
+        }
 
-        function generateChampionships() {
+        async function generateChampionships() {
             const container = document.getElementById("championships-container");
-            container.innerHTML = ""; // Limpiar contenido previo
+            container.innerHTML = "";
 
             const searchTournament = document.getElementById("searchTournament").value.toLowerCase();
             const searchPlayer = document.getElementById("searchPlayer").value.toLowerCase();
 
-            // Filtrar torneos y jugadores en una sola pasada
-            const filteredChampionships = championships
-                .filter(champ => champ.name.toLowerCase().includes(searchTournament))
-                .map(champ => ({
-                    ...champ,
-                    winners: champ.winners.filter(winner => winner.toLowerCase().includes(searchPlayer))
-                }))
-                .filter(champ => champ.winners.length > 0);
+            const championships = await fetchChampionships();
 
-            filteredChampionships.forEach(champ => {
-                // Crear sección con estilos dinámicos
+            championships.forEach(champ => {
+                if (searchTournament && !champ.name.toLowerCase().includes(searchTournament)) return;
+
+                const filteredWinners = champ.winners.filter(winner => 
+                    searchPlayer === "" || winner.toLowerCase().includes(searchPlayer)
+                );
+
+                if (filteredWinners.length === 0) return;
+
                 const section = document.createElement("div");
                 section.classList.add("championship-section");
-                section.style.background = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${champ.backgroundImage})`;
+                section.style.background = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${champ.backgroundImage || 'default.jpg'})`;
                 section.style.backgroundSize = "cover";
                 section.style.backgroundPosition = "center";
-                section.style.border = `3px solid ${champ.backgroundColor}`;
 
-                // Crear título
                 const title = document.createElement("h5");
                 title.classList.add("text-center", "my-2");
                 title.textContent = champ.name;
                 section.appendChild(title);
 
-                // Crear fila
                 const row = document.createElement("div");
                 row.classList.add("row", "m-1");
 
-                champ.winners.forEach(winner => {
+                filteredWinners.forEach(winner => {
                     const col = document.createElement("div");
                     col.classList.add("col");
 
                     const div = document.createElement("div");
                     div.classList.add("d-flex", "flex-column", "align-items-center");
 
-                    const trophy = document.createElement("img");
-                    trophy.src = champ.trophy;
-                    trophy.classList.add("trophy-img");
-
                     const name = document.createElement("span");
                     name.classList.add("winner");
                     name.textContent = winner;
 
-                    div.appendChild(trophy);
                     div.appendChild(name);
                     col.appendChild(div);
                     row.appendChild(col);
@@ -231,12 +145,12 @@
             });
         }
 
-        // Generar contenido dinámico al cargar
-        generateChampionships();
-
-        // Agregar eventos de filtro en tiempo real
+        // Filtrado en tiempo real
         document.getElementById("searchTournament").addEventListener("input", generateChampionships);
         document.getElementById("searchPlayer").addEventListener("input", generateChampionships);
+
+        // Cargar torneos al inicio
+        document.addEventListener("DOMContentLoaded", generateChampionships);
     </script>
 </body>
 </html>

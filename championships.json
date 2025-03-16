@@ -1,0 +1,12 @@
+[
+    {
+        "name": "Torneo 1",
+        "winners": ["Jugador 1", "Jugador 2", "Jugador 3", "Jugador 4"],
+        "backgroundImage": "https://st4.depositphotos.com/36992478/38558/i/450/depositphotos_385583364-stock-photo-soccer-ball-soccer-field-background.jpg"
+    },
+    {
+        "name": "Liga 1",
+        "winners": ["Equipo A", "Equipo B", "Equipo C", "Equipo D", "Equipo E"],
+        "backgroundImage": "https://images.unsplash.com/photo-1521412644187-c49fa049e84d"
+    }
+]
