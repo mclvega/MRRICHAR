@@ -165,6 +165,7 @@
   {
     "name": "MCL VEGA",
     "backgroundImage": "./fondo-estrellas.jpg",
+    "image":"https://areajugones.sport.es/wp-content/uploads/2018/05/God-of-War.png",
     "tournaments": [
       {
         "name": "Copa 1",
