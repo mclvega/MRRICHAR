@@ -132,6 +132,7 @@
         async function fetchPlayers() {
             try {
                 const response = await fetch("./players.json"); // Cargar JSON
+                const response = await fetch(./teams.json");
                 let data = await response.json();
                 data = data.sort((a, b) => b.tournaments.length - a.tournaments.length);
 
@@ -144,6 +145,8 @@
 
         async function generatePlayers() {
             const container = document.getElementById("players-container");
+            container.innerHTML = "";
+            const container = document.getElementById("cooperative-team-container");
             container.innerHTML = "";
 
             const searchPlayer = document.getElementById("searchPlayer").value.toLowerCase();
