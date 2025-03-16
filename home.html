@@ -6,15 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <title>MRRICHAR - Campeones</title>
+    <title>MRRICHAR - Comunidad</title>
     <style> 
         body { 
-            background: url('./fondo-default.png') no-repeat center fixed;
-            background-size: cover;
-            background-color: #011EA0 !important;
+            background-color: #011EA0;
             font-family: 'Nunito', sans-serif;
         }
- 
+
+        .tab-content {
+            margin-top: 20px;
+        }
+
+        .nav-link {
+            color: white;
+        }
+
+        .nav-tabs .nav-link.active {
+            background-color: #0A47D1;
+            color: white;
+            border-color: #0A47D1;
+        }
+
         .player-section {
             padding: 20px;
             border-radius: 10px;
@@ -34,162 +46,63 @@
             margin: 0 auto 10px;
         }
 
-        .player-details {
-            flex-grow: 1;
-        }
-
-        h3, h5 {
-            font-weight: 700;
-        }
-
-        .tournament {
-            font-weight: 600;
-            font-size: 1rem;
-        }
-
-        input::placeholder {
-            font-weight: 300;
-            color: #ccc;
-        }
-
-        .logo {
-            width: 200px;
-        }
-
         .trophy-img {
             height: 60px;
-        }
-
-        .izq-image{
-            position: fixed;
-        }
-        .der-image{
-            position: fixed;
-            right: 0px;
-        } 
-        .title{
-            text-align: center;
-            color: white;
-            align-items: center;
-        }
-        .efootball-image{
-            position: fixed;
-            bottom: -100px;
-            right: 10px;
-            height: 300px;
-            z-index: 1;
         }
     </style>
 </head>
 <body> 
-    <!-- <img class="izq-image" src="https://hondurascdn.b-cdn.net/wp-content/uploads/2020/09/p19054_t178_2020_1_001_000-356x387.png">  </img>
-    <img class="der-image" src="https://hondurascdn.b-cdn.net/wp-content/uploads/2020/09/p19054_t178_2020_1_001_000-356x387.png">  </img> -->
-    <!-- <img class="efootball-image" src="./efootball.png">  </img> -->
     <div class="container mt-5">
-        <div class="title">
-            <img class="logo" src="./logo.png" alt="Logo">
-            <h1><strong>Campeones de la Comunidad</strong></h1> 
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab">Inicio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="champions-tab" data-toggle="tab" href="#champions" role="tab">Campeones</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="tournaments-tab" data-toggle="tab" href="#tournaments" role="tab">Torneos</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <!-- Sección Inicio -->
+            <div class="tab-pane fade show active" id="home" role="tabpanel">
+                <h1 class="text-white">Bienvenido a la comunidad de MRRICHAR</h1>
+                <p class="text-white">Explora nuestros torneos, campeones y mucho más.</p>
+            </div>
+
+            <!-- Sección Campeones -->
+            <div class="tab-pane fade" id="champions" role="tabpanel">
+                <div class="row mb-3">
+                    <div class="col m-1">
+                        <input type="text" id="searchPlayer" class="form-control" placeholder="Buscar por jugador...">
+                    </div>
+                    <div class="col m-1">
+                        <input type="text" id="searchTournament" class="form-control" placeholder="Buscar por torneo...">
+                    </div>
+                </div>
+                <div id="players-container"></div>
+            </div>
+
+            <!-- Sección Torneos -->
+            <div class="tab-pane fade" id="tournaments" role="tabpanel">
+                <h1 class="text-white">Sección de Torneos</h1>
+                <p class="text-white">Próximamente disponible...</p>
+            </div>
         </div>
-        <div class="row mb-3">
-        <div class="col m-1 ">
-            <input type="text" id="searchPlayer" class="form-control" placeholder="Buscar por jugador...">
-        </div>
-        <div class="col m-1 ">
-            <input type="text" id="searchTournament" class="form-control" placeholder="Buscar por torneo...">
-        </div>
-        </div>
-        <div id="players-container"></div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+
     <script>
-        async function fetchPlayers() {
-            try {
-                const response = await fetch("./players.json"); // Cargar JSON
-                let data = await response.json();
-                data = data.sort((a, b) => b.tournaments.length - a.tournaments.length);
-
-                return data;
-            } catch (error) {
-                console.error("Error al cargar los jugadores:", error);
-                return [];
-            }
-        }
-
-        async function generatePlayers() {
-            const container = document.getElementById("players-container");
-            container.innerHTML = "";
-
-            const searchPlayer = document.getElementById("searchPlayer").value.toLowerCase();
-            const searchTournament = document.getElementById("searchTournament").value.toLowerCase();
-
-            const players = await fetchPlayers();
-
-            players.forEach(player => {
-                if (searchPlayer && !player.name.toLowerCase().includes(searchPlayer)) return;
-
-                // Filtrar torneos dentro del jugador
-                const filteredTournaments = player.tournaments.filter(tournament => 
-                    searchTournament === "" || tournament.name.toLowerCase().includes(searchTournament)
-                );
-
-                if (filteredTournaments.length === 0) return; // No mostrar si el jugador no tiene torneos que coincidan
-
-                const section = document.createElement("div");
-                section.classList.add("player-section");
-                section.style.background = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${player.backgroundImage || 'default.jpg'})`;
-                section.style.backgroundSize = "cover";
-                section.style.backgroundPosition = "center";
-
-                const playerDetails = document.createElement("div");
-                playerDetails.classList.add("player-details");
-
-                // Imagen del jugador encima del nombre
-                const playerImage = document.createElement("img");
-                playerImage.src = player.image || "default.jpg";
-                playerImage.classList.add("player-image");
-
-                const title = document.createElement("h5");
-                title.textContent = player.name;
-
-                playerDetails.appendChild(playerImage);
-                playerDetails.appendChild(title);
-
-                const row = document.createElement("div");
-                row.classList.add("row", "m-1");
-
-                filteredTournaments.forEach(tournament => {
-                    const col = document.createElement("div");
-                    col.classList.add("col");
-
-                    const div = document.createElement("div");
-                    div.classList.add("d-flex", "flex-column", "align-items-center");
-
-                    const trophy = document.createElement("img");
-                    trophy.src = tournament.trophy;
-                    trophy.classList.add("trophy-img");
-                    div.appendChild(trophy);
-
-                    const name = document.createElement("span");
-                    name.classList.add("tournament");
-                    name.textContent = tournament.name;
-
-                    div.appendChild(name);
-                    col.appendChild(div);
-                    row.appendChild(col);
-                });
-
-                playerDetails.appendChild(row);
-                section.appendChild(playerDetails);
-                container.appendChild(section);
+        $(function () {
+            $('#myTab a').click(function (e) {
+                e.preventDefault();
+                $(this).tab('show');
             });
-        }
-
-        // Filtrado en tiempo real
-        document.getElementById("searchPlayer").addEventListener("input", generatePlayers);
-        document.getElementById("searchTournament").addEventListener("input", generatePlayers);
-
-        // Cargar jugadores al inicio
-        document.addEventListener("DOMContentLoaded", generatePlayers);
+        });
     </script>
 </body>
 </html>
