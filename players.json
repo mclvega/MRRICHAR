@@ -1,47 +1,305 @@
 [
-    {
-      "name": "Lionel Messi",
-      "image":"https://imageio.forbes.com/specials-images/imageserve/663e595b4509f97fdafb95f5/0x0.jpg?format=jpg&crop=383,383,x1045,y23,safe&height=416&width=416&fit=bounds",
+  {
+      "name": "RICHIRICHON",
       "backgroundImage": "./fondo-estrellas.jpg",
       "tournaments": [
         {
-          "name": "Copa América",
-          "trophy": "./copa-america.png"
+          "name": "Copa 1",
+          "trophy": "./cup.png"
         },
         {
-          "name": "Champions League",
-          "trophy": "./champions-league.png"
-        }
-      ]
-    },
-    {
-      "name": "Cristiano Ronaldo",
-      "image": "https://assets.goal.com/images/v3/blt2aaca933046f8b00/Cristiano%20Ronaldo%20Portugal%202024%20(4).jpg",
-      "backgroundImage": "./fondo-estrellas.jpg",
-      "tournaments": [
-        {
-          "name": "Eurocopa",
-          "trophy": "./eurocopa.png"
+          "name": "Copa 2",
+          "trophy": "./cup.png"
         },
         {
-          "name": "Champions League 2015",
-          "trophy": "./champions-league.png"
+          "name": "Copa 3",
+          "trophy": "./cup.png"
         },
         {
-          "name": "Champions League 2017",
-          "trophy": "./champions-league.png"
-        }
-      ]
-    },
-    {
-      "name": "Neymar",
-      "backgroundImage": "./fondo-estrellas.jpg",
-      "tournaments": [
+          "name": "Copa 4",
+          "trophy": "./cup.png"
+        },
         {
-          "name": "Copa Libertadores",
-          "trophy": "./copa-libertadores.png"
+          "name": "Copa 5",
+          "trophy": "./cup.png"
+        },
+        {
+          "name": "Copa 6",
+          "trophy": "./cup.png"
+        },
+        {
+          "name": "Copa 7",
+          "trophy": "./cup.png"
+        },
+        {
+          "name": "Copa 8",
+          "trophy": "./cup.png"
+        },
+        {
+          "name": "Copa 9",
+          "trophy": "./cup.png"
+        },
+        {
+          "name": "Copa 10",
+          "trophy": "./cup.png"
+        },
+        {
+          "name": "Copa 11",
+          "trophy": "./cup.png"
+        },
+        
+        {
+          "name": "Copa 12",
+          "trophy": "./cup.png"
+        },
+        {
+          "name": "Copa 13",
+          "trophy": "./cup.png"
+        },
+        {
+          "name": "Copa 14",
+          "trophy": "./cup.png"
+        },
+        {
+          "name": "Liga 1",
+          "trophy": "./league.png"
+        },
+        {
+          "name": "Liga 2",
+          "trophy": "./league.png"
+        },
+        {
+          "name": "Liga 3",
+          "trophy": "./league.png"
+        },
+        {
+          "name": "Liga 4",
+          "trophy": "./league.png"
+        },
+        {
+          "name": "Liga 5",
+          "trophy": "./league.png"
+        },
+        {
+          "name": "Liga 6",
+          "trophy": "./league.png"
         }
       ]
-    }
-  ]
-  
+  },
+  {
+    "name": "DYJ_BRIAN",
+    "backgroundImage": "./fondo-estrellas.jpg",
+    "tournaments": [
+      {
+        "name": "Copa 1",
+        "trophy": "./cup.png"
+      },
+      {
+        "name": "Copa 2",
+        "trophy": "./cup.png"
+      },
+      {
+        "name": "Copa 3",
+        "trophy": "./cup.png"
+      },
+      {
+        "name": "Copa 4",
+        "trophy": "./cup.png"
+      },
+      {
+        "name": "Copa 5",
+        "trophy": "./cup.png"
+      },
+      {
+        "name": "Liga 1",
+        "trophy": "./league.png"
+      },
+      {
+        "name": "Liga 2",
+        "trophy": "./league.png"
+      },
+      {
+        "name": "Liga 3",
+        "trophy": "./league.png"
+      },
+      {
+        "name": "Liga 4",
+        "trophy": "./league.png"
+      }
+    ]
+  },
+  {
+    "name": "LOKI",
+    "backgroundImage": "./fondo-estrellas.jpg",
+    "tournaments": [
+      {
+        "name": "Copa 1",
+        "trophy": "./cup.png"
+      },
+      {
+        "name": "Copa 2",
+        "trophy": "./cup.png"
+      },
+      {
+        "name": "Copa 3",
+        "trophy": "./cup.png"
+      },
+      {
+        "name": "Copa 4",
+        "trophy": "./cup.png"
+      },
+      {
+        "name": "Copa 5",
+        "trophy": "./cup.png"
+      },
+      {
+        "name": "Liga 1",
+        "trophy": "./league.png"
+      },
+      {
+        "name": "Liga 2",
+        "trophy": "./league.png"
+      }
+    ]
+  },
+  {
+    "name": "MCL VEGA",
+    "backgroundImage": "./fondo-estrellas.jpg",
+    "tournaments": [
+      {
+        "name": "Copa 1",
+        "trophy": "./cup.png"
+      },
+      {
+        "name": "Copa 2",
+        "trophy": "./cup.png"
+      },
+      {
+        "name": "Copa 3",
+        "trophy": "./cup.png"
+      },
+      {
+        "name": "Copa 4",
+        "trophy": "./cup.png"
+      },
+      {
+        "name": "Liga 1",
+        "trophy": "./league.png"
+      }
+    ]
+  },
+  {
+    "name": "PABLO",
+    "backgroundImage": "./fondo-estrellas.jpg",
+    "tournaments": [
+      {
+        "name": "Copa 1",
+        "trophy": "./cup.png"
+      },
+      {
+        "name": "Copa 2",
+        "trophy": "./cup.png"
+      },
+      {
+        "name": "Liga 1",
+        "trophy": "./league.png"
+      }
+    ]
+  },
+  {
+    "name": "LYLDEF",
+    "backgroundImage": "./fondo-estrellas.jpg",
+    "tournaments": [
+      {
+        "name": "Copa 1",
+        "trophy": "./cup.png"
+      },
+      {
+        "name": "Copa 2",
+        "trophy": "./cup.png"
+      },
+      {
+        "name": "Liga 1",
+        "trophy": "./league.png"
+      }
+    ]
+  },
+  {
+    "name": "FACU",
+    "backgroundImage": "./fondo-estrellas.jpg",
+    "tournaments": [
+      {
+        "name": "Copa 1",
+        "trophy": "./cup.png"
+      },
+      {
+        "name": "Liga 1",
+        "trophy": "./league.png"
+      }
+    ]
+  },
+  {
+    "name": "BRUNO",
+    "backgroundImage": "./fondo-estrellas.jpg",
+    "tournaments": [
+      {
+        "name": "Copa 1",
+        "trophy": "./cup.png"
+      }
+    ]
+  },
+  {
+    "name": "ALEX",
+    "backgroundImage": "./fondo-estrellas.jpg",
+    "tournaments": [
+      {
+        "name": "Liga 1",
+        "trophy": "./league.png"
+      }
+    ]
+  },
+  {
+    "name": "HORAGOLD",
+    "backgroundImage": "./fondo-estrellas.jpg",
+    "tournaments": [
+      {
+        "name": "Liga 1",
+        "trophy": "./league.png"
+      },
+      {
+        "name": "Liga 2",
+        "trophy": "./league.png"
+      }
+    ]
+  },
+  {
+    "name": "THIAGO",
+    "backgroundImage": "./fondo-estrellas.jpg",
+    "tournaments": [
+      {
+        "name": "Liga 1",
+        "trophy": "./league.png"
+      }
+    ]
+  },
+  {
+    "name": "JUANJO",
+    "backgroundImage": "./fondo-estrellas.jpg",
+    "tournaments": [
+      {
+        "name": "Liga 1",
+        "trophy": "./league.png"
+      }
+    ]
+  },
+  {
+    "name": "BRIAN",
+    "backgroundImage": "./fondo-estrellas.jpg",
+    "tournaments": [
+      {
+        "name": "Liga 1",
+        "trophy": "./league.png"
+      }
+    ]
+  }
+]
