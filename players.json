@@ -1,0 +1,48 @@
+[
+    {
+      "name": "Lionel Messi",
+      "image":"https://imageio.forbes.com/specials-images/imageserve/663e595b4509f97fdafb95f5/0x0.jpg?format=jpg&crop=383,383,x1045,y23,safe&height=416&width=416&fit=bounds",
+      "backgroundImage": "./fondo-estrellas.jpg",
+      "tournaments": [
+        {
+          "name": "Copa América",
+          "trophy": "./copa-america.png"
+        },
+        {
+          "name": "Champions League",
+          "trophy": "./champions-league.png"
+        }
+      ]
+    },
+    {
+      "name": "Cristiano Ronaldo",
+      "image": "https://assets.goal.com/images/v3/blt2aaca933046f8b00/Cristiano%20Ronaldo%20Portugal%202024%20(4).jpg",
+      "backgroundImage": "./fondo-estrellas.jpg",
+      "tournaments": [
+        {
+          "name": "Eurocopa",
+          "trophy": "./eurocopa.png"
+        },
+        {
+          "name": "Champions League 2015",
+          "trophy": "./champions-league.png"
+        },
+        {
+          "name": "Champions League 2017",
+          "trophy": "./champions-league.png"
+        }
+      ]
+    },
+    {
+      "name": "Neymar",
+      "image":"https://media.losandes.com.ar/p/d95a3c7b713bbbeec9a3970e9e660d38/adjuntos/368/imagenes/100/606/0100606450/1000x0/smart/neymar-vuelve-la-seleccion-brasil.png",
+      "backgroundImage": "./fondo-estrellas.jpg",
+      "tournaments": [
+        {
+          "name": "Copa Libertadores",
+          "trophy": "./copa-libertadores.png"
+        }
+      ]
+    }
+  ]
+  
