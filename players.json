@@ -131,6 +131,7 @@
   {
     "name": "LOKI",
     "backgroundImage": "./fondo-estrellas.jpg",
+    "image":"./loki.jpg",
     "tournaments": [
       {
         "name": "Dream Team Restricto",
