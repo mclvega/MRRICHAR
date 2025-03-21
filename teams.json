@@ -1,61 +1,73 @@
 [
   {
-      "name": "RICHIRICHON",
-      "backgroundImage": "./fondo-estrellas.jpg",
-      "tournaments":
+    "team": "BRIAN AND EMIDAN",
+    "name1": "BRIAN",
+    "image1":"",
+    "name2": "EMIDAN",
+    "image2":"",
+    "backgroundImage": "./fondo-estrellas.jpg",
+    "tournaments": [
         {
-          "name": "Genuino Random",
+            "name": "1er Torneo Coop Nocturno",
+            "trophy": "./cup.png"
+        }
+    ]
+},
+{
+  "team": "TEAM CHILE",
+  "name1": "AKA_DGO",
+  "image1":"",
+  "name2": "MIKEL",
+  "image2":"",
+  "backgroundImage": "./fondo-estrellas.jpg",
+  "tournaments": [
+      {
+          "name": "2do Torneo Coop Nocturno",
           "trophy": "./cup.png"
-        
-      
-  },
-  {
-    "name": "DYJ_BRIAN",
-    "backgroundImage": "./fondo-estrellas.jpg",
-    "tournaments": 
-      {
-        "name": "A ver si ganan algo",
-        "trophy": "./cup.png"
-      },
-      
-    
-  },
-  {
-    "name": "LOKI",
-    "backgroundImage": "./fondo-estrellas.jpg",
-    "tournaments": 
-      {
-        "name": "Dream Team Restricto",
-        "trophy": "./cup.png"
-      },
-     
-  },
-  {
-    "name": "MCL VEGA",
-    "backgroundImage": "./fondo-estrellas.jpg",
-    "image":"https://areajugones.sport.es/wp-content/uploads/2018/05/God-of-War.png",
-    "tournaments": 
-      {
-        "name": "Draft Dream Team",
-        "trophy": "./cup.png"
       }
-  },
-  {
-    "name": "PABLO",
-    "backgroundImage": "./fondo-estrellas.jpg",
-    "tournaments":
+  ]
+},
+{
+  "team": "PABLO AND ANGEL",
+  "name1": "PABLO",
+  "image1":"",
+  "name2": "ANGELVI",
+  "image2":"",
+  "backgroundImage": "./fondo-estrellas.jpg",
+  "tournaments": [
       {
-        "name": "Eurocopa 2024",
-        "trophy": "./cup.png"
-      },
-      {
-        "name": "Genuino 2.0",
-        "trophy": "./cup.png"
-      },
-      {
-        "name": "Superliga 2025",
-        "trophy": "./league.png"
+          "name": "Mini Liga COOP al Azar",
+          "trophy": "./cup.png"
       }
-    
-  }
+  ]
+},
+{
+    "team": "LOKI AND PABLO",
+    "name1": "LOKI",
+    "image1":"loki.jpg",
+    "name2": "PABLO",
+    "image2":"",
+    "backgroundImage": "./fondo-estrellas.jpg",
+    "tournaments": [
+        {
+            "name": "3er Torneo Coop Nocturno",
+            "trophy": "./cup.png"
+        }
+    ]
+  },
+{
+  "team": "RICHI AND MOCUX",
+  "name1": "RICHIRICHON",
+  "image1":"",
+  "name2": "MOCUX_ROBERT",
+  "image2":"",
+  "backgroundImage": "./fondo-estrellas.jpg",
+  "tournaments": [
+      {
+          "name": "Torneo Coop",
+          "trophy": "./cup.png"
+      }
+  ]
+}
+
 ]

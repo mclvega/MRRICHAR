@@ -1,0 +1,268 @@
+body { 
+    background: url('./fondo-default.png') no-repeat center fixed;
+    background-size: cover;
+    background-color: #011EA0;
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+}
+
+/* Título y logo */
+.title {
+    text-align: center;
+    color: white;
+    margin-top: 20px;
+}
+
+.logo {
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+/* Navegación */
+nav {
+    background-color: black;
+    background-image: url(fondo-estrellas.jpg);
+    background-size: cover;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+}
+
+ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.section {
+    background-image: url(fondo-default.png);
+    margin-top: 40px; /* Espaciado entre secciones */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Contenedor de videos */
+.video-container {
+    display: flex;
+    background-image: url(fondo-estrellas.jpg);
+    background-size: cover;
+    justify-content: center; 
+    align-items: center;     
+    gap: 40px; /* Espacio entre los videos */
+    padding-top: 10px;
+    border-radius: 10px;
+}
+
+/* Ajuste de videos */
+.responsive-video {
+    width: 180px;   
+    height: 320px;
+    border-radius: 10px;
+}
+
+/* Estilo para los links de redes sociales */
+h3 {
+    text-align: center;
+    margin-top: 10px;
+}
+
+h3 a {
+    color: #ff9800; /* Color llamativo para enlaces */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+h3 a:hover {
+    color: #ff5722; /* Color al pasar el cursor */
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+    .responsive-video {
+        width: 160px;
+        height: 280px;
+    }
+}
+
+@media (max-width: 768px) {
+    .responsive-video {
+        width: 140px;
+        height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .video-container {
+        flex-direction: column; /* Apila videos en móviles */
+        
+    }
+    .responsive-video {
+        width: 200px;
+        height: auto;
+    }
+}
+
+.player-section, .teams-section {
+   
+    border-radius: 10px;
+    margin-bottom: 20px;
+    color: white;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    background: rgba(0, 0, 0, 0.6);
+    background-size:cover;
+    background-position: center;
+}
+
+.player-image, .teams-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover; 
+    display: block;
+    margin: 0 auto 10px;
+}
+
+.player-details, .teams-details {
+    flex-grow: 1;
+}
+
+h3, h5 {
+    font-weight: 700;
+}
+
+.tournament {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+input::placeholder {
+    font-weight: 300;
+    color: #ccc;
+}
+
+.logo {
+    width: 200px;
+}
+
+.trophy-img {
+    height: 60px;
+}
+
+.izq-image {
+    position: fixed;
+}
+
+.der-image {
+    position: fixed;
+    right: 0px;
+}
+
+.title {
+    text-align: center;
+    color: white;
+    align-items: center;
+}
+
+.efootball-image {
+    position: fixed;
+    bottom: -100px;
+    right: 10px;
+    height: 300px;
+    z-index: 1;
+}
+
+#players-container, #teams-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .player-section, .teams-section {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+
+    .player-image, .teams-image {
+        width: 80px;
+        height: 80px;
+    }
+
+    .trophy-img {
+        height: 50px;
+    }
+
+    h5 {
+        font-size: 1.2rem;
+    }
+
+    h4 {
+        font-size: 1rem;
+    }
+}
+#teams-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+/* Estilo para el título Campeones */
+#campeones h2 {
+    text-align: center;
+    background-color: #FFD700;
+    color: #000;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.teams-image {
+    width: 100px; /* O el tamaño que prefieras */
+    height: 100px; /* O el tamaño que prefieras */
+    object-fit: cover; /* Esto asegurará que las imágenes se ajusten sin deformarse */
+    border-radius: 50%; /* Si deseas bordes redondeados */
+}
+
+.flex {
+    display: flex;
+    justify-content: center; /* Centra las imágenes horizontalmente */
+    gap: 10px; /* Espacio entre las imágenes */
+}
+
+.relative {
+    position: relative;
+
+}
+.relative p {
+    font-size: 1.1rem;
+}
+.relative span {
+    padding-bottom: 15px;
+    text-align: center;
+}
+.relative h4 {
+    
+    border-radius: 10px;
+color: white;
+}
+.relative background-image {
+    background-size: cover;
+}
+.relative img.trophy-img {
+    width: 60px;
+    align-items: center;
+}
+.relative div {
+    align-items: center;
+    border-radius: 10px;
+    background-size: 1100px;
+    padding: 0;
+}
