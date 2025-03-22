@@ -18,23 +18,43 @@
       font-family: 'Nunito', sans-serif;
       color: white;
       text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+      overflow-x: hidden;
+    }
+
+    .title {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .logo {
+      max-width: 100%;
+      height: auto;
+      width: 200px;
     }
 
     .player-section {
-      padding: 20px;
-      border-radius: 10px;
+      padding: 15px;
+      border-radius: 12px;
       margin-bottom: 20px;
       box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
       text-align: center;
-      background-blend-mode: overlay;
+      background-size: cover;
+      background-position: center;
     }
 
     .player-image {
-      width: 100px;
-      height: 100px;
+      width: 80px;
+      height: 80px;
       border-radius: 50%;
       object-fit: cover;
       margin: 0 auto 10px;
+    }
+
+    @media (min-width: 768px) {
+      .player-image {
+        width: 100px;
+        height: 100px;
+      }
     }
 
     .trophy-img {
@@ -46,66 +66,99 @@
       font-size: 1rem;
     }
 
-    .title {
-      text-align: center;
-      margin-bottom: 2rem;
+    .video-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 30px;
     }
 
-    .logo {
-      width: 200px;
+    .video-section > div {
+      flex: 1 1 100%;
+      max-width: 100%;
+      padding: 10px;
     }
 
-    .fixed-img {
-      position: fixed;
-      z-index: 1;
+    @media (min-width: 768px) {
+      .video-section > div {
+        flex: 1 1 45%;
+        max-width: 45%;
+      }
     }
 
-    .fixed-img.left {
-      left: 0;
+    .embed-responsive {
+      border-radius: 10px;
+      overflow: hidden;
     }
 
-    .fixed-img.right {
-      right: 0;
+    .video-section h3 a {
+      color: white;
+      text-decoration: none;
     }
 
-    .efootball-image {
-      bottom: -100px;
-      right: 10px;
-      height: 300px;
+    .video-section h3 a:hover {
+      text-decoration: underline;
     }
 
     input::placeholder {
       color: #ccc;
       font-weight: 300;
     }
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+    }
   </style>
 </head>
 <body>
-  <!-- Opcionales decorativos -->
-  <!-- <img class="fixed-img left" src="izq.png" alt="Decoración izquierda">
-  <img class="fixed-img right" src="der.png" alt="Decoración derecha">
-  <img class="fixed-img efootball-image" src="./efootball.png" alt="eFootball"> -->
 
   <div class="container mt-5">
     <div class="title">
-      <img class="logo" src="./logo.png" alt="Logo">
+      <img class="logo mb-3" src="./logo.png" alt="Logo">
       <h1 class="font-weight-bold">Campeones de la Comunidad</h1>
     </div>
 
+    <div class="video-section">
+      <div>
+        <div class="embed-responsive embed-responsive-16by9 mb-3">
+          <video class="embed-responsive-item" controls autoplay loop muted>
+            <source src="FollowIG.mp4" type="video/mp4">
+            Tu navegador no soporta videos HTML5.
+          </video>
+        </div>
+        <h3><a href="https://www.instagram.com/mrrichar.tw/" target="_blank">Instagram: @mrrichar.tw</a></h3>
+      </div>
+      <div>
+        <div class="embed-responsive embed-responsive-16by9 mb-3">
+          <video class="embed-responsive-item" controls autoplay loop muted>
+            <source src="FollowingTW.mp4" type="video/mp4">
+            Tu navegador no soporta videos HTML5.
+          </video>
+        </div>
+        <h3><a href="https://www.twitch.tv/mrrichar_" target="_blank">Twitch: mrrichar_</a></h3>
+      </div>
+    </div>
+
     <div class="row mb-3">
-      <div class="col-md-6 mb-2">
+      <div class="col-12 col-md-6 mb-2">
         <button class="btn btn-light btn-block font-weight-bold" onclick="generatePlayers(false)">Individual</button>
       </div>
-      <div class="col-md-6 mb-2">
+      <div class="col-12 col-md-6 mb-2">
         <button class="btn btn-light btn-block font-weight-bold" onclick="generateTeams(true)">Grupal</button>
       </div>
     </div>
 
     <div class="row mb-4">
-      <div class="col-md-6 mb-2">
+      <div class="col-12 col-md-6 mb-2">
         <input type="text" id="searchPlayer" class="form-control" placeholder="Buscar por jugador...">
       </div>
-      <div class="col-md-6 mb-2">
+      <div class="col-12 col-md-6 mb-2">
         <input type="text" id="searchTournament" class="form-control" placeholder="Buscar por torneo...">
       </div>
     </div>
@@ -149,7 +202,7 @@
 
         const section = document.createElement("div");
         section.className = "player-section";
-        section.style.background = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${player.backgroundImage || 'default.jpg'}) center/cover`;
+        section.style.background = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${player.backgroundImage || 'default.jpg'})`;
 
         section.innerHTML = `
           <img src="${player.image || 'default.jpg'}" class="player-image">
@@ -169,68 +222,62 @@
     };
 
     const generateTeams = async () => {
-    const container = document.getElementById("teams-container");
-    container.innerHTML = "";
-    document.getElementById("players-container").innerHTML = "";
+      const container = document.getElementById("teams-container");
+      container.innerHTML = "";
+      document.getElementById("players-container").innerHTML = "";
 
-    const searchPlayer = document.getElementById("searchPlayer").value.toLowerCase();
-    const searchTournament = document.getElementById("searchTournament").value.toLowerCase();
+      const searchPlayer = document.getElementById("searchPlayer").value.toLowerCase();
+      const searchTournament = document.getElementById("searchTournament").value.toLowerCase();
+      const teams = await fetchData("./teams.json");
 
-    const teams = await fetchData("./teams.json");
-
-    teams.forEach(team => {
+      teams.forEach(team => {
         const fullTeamName = `${team.name1} ${team.name2}`.toLowerCase();
 
-        // Filtrar por nombre
         if (searchPlayer && !fullTeamName.includes(searchPlayer)) return;
 
-        // Filtrar torneos
         let tournaments = team.tournaments;
         if (searchTournament) {
-        tournaments = tournaments.filter(t =>
+          tournaments = tournaments.filter(t =>
             t.name.toLowerCase().includes(searchTournament)
-        );
+          );
         }
 
         if (tournaments.length === 0) return;
 
         const section = document.createElement("div");
         section.className = "player-section";
-        section.style.background = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${team.backgroundImage || 'default.jpg'}) center/cover`;
+        section.style.background = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${team.backgroundImage || 'default.jpg'})`;
 
         section.innerHTML = `
-        <h4 class="font-weight-bold">${team.team}</h4>
-        <div class="d-flex justify-content-center align-items-center flex-wrap">
+          <h4 class="font-weight-bold">${team.team}</h4>
+          <div class="d-flex justify-content-center align-items-center flex-wrap">
             <div class="text-center m-2">
-            <img src="${team.image1 || 'default.jpg'}" class="player-image">
-            <h5>${team.name1}</h5>
+              <img src="${team.image1 || 'default.jpg'}" class="player-image">
+              <h5>${team.name1}</h5>
             </div>
             <div class="text-center m-2">
-            <img src="${team.image2 || 'default.jpg'}" class="player-image">
-            <h5>${team.name2}</h5>
+              <img src="${team.image2 || 'default.jpg'}" class="player-image">
+              <h5>${team.name2}</h5>
             </div>
-        </div>
-        <div class="row mt-3">
+          </div>
+          <div class="row mt-3">
             ${tournaments.map(t => `
-            <div class="col">
+              <div class="col">
                 <div class="d-flex flex-column align-items-center">
-                <img src="${t.trophy}" class="trophy-img">
-                <span class="tournament">${t.name}</span>
+                  <img src="${t.trophy}" class="trophy-img">
+                  <span class="tournament">${t.name}</span>
                 </div>
-            </div>`).join("")}
-        </div>
+              </div>`).join("")}
+          </div>
         `;
 
         container.appendChild(section);
-    });
+      });
     };
 
-
-    // Filtros en tiempo real
     document.getElementById("searchPlayer").addEventListener("input", generateTeams);
     document.getElementById("searchTournament").addEventListener("input", generateTeams);
 
-    // Cargar vista inicial
     document.addEventListener("DOMContentLoaded", () => generatePlayers(false));
   </script>
 </body>
