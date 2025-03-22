@@ -103,18 +103,6 @@
         "trophy": "./cup.png"
       },
       {
-        "name": "Relampago Nocturno",
-        "trophy": "./cup.png"
-      },
-      {
-        "name": "Destacados & Memorables",
-        "trophy": "./cup.png"
-      },
-      {
-        "name": "Relampago Potw Nocturno",
-        "trophy": "./cup.png"
-      },
-      {
         "name": "Liga A T5",
         "trophy": "./league.png"
       },
@@ -129,6 +117,18 @@
       {
         "name": "Copa Liga QB T6",
         "trophy": "./league.png"
+      },
+       {
+        "name": "Relampago Nocturno",
+        "trophy": "./cup.png"
+      },
+      {
+        "name": "Destacados & Memorables",
+        "trophy": "./cup.png"
+      },
+      {
+        "name": "Relampago Potw Nocturno",
+        "trophy": "./cup.png"
       }
     ]
   },
