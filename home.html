@@ -124,8 +124,8 @@
       <h1 class="font-weight-bold">Campeones de la Comunidad</h1>
     </div>
 
-    <div class="video-section text-center">
-      <div>
+    <div class="row video-section text-center">
+      <div class="col-6">
         <div class="embed-responsive embed-responsive-16by9 mb-3">
           <video class="embed-responsive-item" controls autoplay loop muted>
             <source src="FollowIG.mp4" type="video/mp4">
@@ -134,7 +134,7 @@
         </div>
         <h3><a href="https://www.instagram.com/mrrichar.tw/" target="_blank">Instagram: @mrrichar.tw</a></h3>
       </div>
-      <div>
+      <div class="col-6">
         <div class="embed-responsive embed-responsive-16by9 mb-3">
           <video class="embed-responsive-item" controls autoplay loop muted>
             <source src="FollowingTW.mp4" type="video/mp4">
@@ -146,10 +146,10 @@
     </div>
 
     <div class="row mb-3">
-      <div class="col-12 col-md-6 mb-2">
+      <div class="col-6 mb-2">
         <button class="btn btn-light btn-block font-weight-bold" onclick="generatePlayers(false)">Individual</button>
       </div>
-      <div class="col-12 col-md-6 mb-2">
+      <div class="col-6 mb-2">
         <button class="btn btn-light btn-block font-weight-bold" onclick="generateTeams(true)">Grupal</button>
       </div>
     </div>
@@ -203,7 +203,8 @@
         const section = document.createElement("div");
         section.className = "player-section";
         section.style.background = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${player.backgroundImage || 'default.jpg'})`;
-
+        section.style.backgroundSize = 'cover';
+        section.style.backgroundPosition = 'center';
         section.innerHTML = `
           <img src="${player.image || 'default.jpg'}" class="player-image">
           <h5 class="font-weight-bold">${player.name}</h5>
@@ -248,6 +249,8 @@
         section.className = "player-section";
         section.style.background = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${team.backgroundImage || 'default.jpg'})`;
 
+        section.style.backgroundSize = 'cover';
+        section.style.backgroundPosition = 'center';
         section.innerHTML = `
           <h4 class="font-weight-bold">${team.team}</h4>
           <div class="d-flex justify-content-center align-items-center flex-wrap">
