@@ -47,19 +47,6 @@
           "name": "Potw Potm Pots 4.0",
           "trophy": "./cup.png"
         },
-        
-        {
-          "name": "America & Asia",
-          "trophy": "./cup.png"
-        },
-        {
-          "name": "Potw Potm Pots 5.0",
-          "trophy": "./cup.png"
-        },
-        {
-          "name": "Dream Team",
-          "trophy": "./cup.png"
-        },
         {
           "name": "Liga B T1",
           "trophy": "./league.png"
@@ -83,7 +70,19 @@
         {
           "name": "Copa Liga NTDC T6",
           "trophy": "./league.png"
-        }
+        },
+        {
+          "name": "America & Asia",
+          "trophy": "./cup.png"
+        },
+        {
+          "name": "Potw Potm Pots 5.0",
+          "trophy": "./cup.png"
+        },
+        {
+          "name": "Dream Team",
+          "trophy": "./cup.png"
+        },
       ]
   },
   {
