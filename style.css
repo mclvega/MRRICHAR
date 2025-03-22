@@ -65,6 +65,7 @@ ul li a {
     width: 180px;   
     height: 320px;
     border-radius: 10px;
+    align-items: center;   
 }
 
 /* Estilo para los links de redes sociales */
