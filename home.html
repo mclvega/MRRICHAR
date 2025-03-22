@@ -169,61 +169,61 @@
     };
 
     const generateTeams = async () => {
-  const container = document.getElementById("teams-container");
-  container.innerHTML = "";
-  document.getElementById("players-container").innerHTML = "";
+    const container = document.getElementById("teams-container");
+    container.innerHTML = "";
+    document.getElementById("players-container").innerHTML = "";
 
-  const searchPlayer = document.getElementById("searchPlayer").value.toLowerCase();
-  const searchTournament = document.getElementById("searchTournament").value.toLowerCase();
+    const searchPlayer = document.getElementById("searchPlayer").value.toLowerCase();
+    const searchTournament = document.getElementById("searchTournament").value.toLowerCase();
 
-  const teams = await fetchData("./teams.json");
+    const teams = await fetchData("./teams.json");
 
-  teams.forEach(team => {
-    const fullTeamName = `${team.name1} ${team.name2}`.toLowerCase();
+    teams.forEach(team => {
+        const fullTeamName = `${team.name1} ${team.name2}`.toLowerCase();
 
-    // Filtrar por nombre
-    if (searchPlayer && !fullTeamName.includes(searchPlayer)) return;
+        // Filtrar por nombre
+        if (searchPlayer && !fullTeamName.includes(searchPlayer)) return;
 
-    // Filtrar torneos
-    let tournaments = team.tournaments;
-    if (searchTournament) {
-      tournaments = tournaments.filter(t =>
-        t.name.toLowerCase().includes(searchTournament)
-      );
-    }
+        // Filtrar torneos
+        let tournaments = team.tournaments;
+        if (searchTournament) {
+        tournaments = tournaments.filter(t =>
+            t.name.toLowerCase().includes(searchTournament)
+        );
+        }
 
-    if (tournaments.length === 0) return;
+        if (tournaments.length === 0) return;
 
-    const section = document.createElement("div");
-    section.className = "player-section";
-    section.style.background = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${team.backgroundImage || 'default.jpg'}) center/cover`;
+        const section = document.createElement("div");
+        section.className = "player-section";
+        section.style.background = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${team.backgroundImage || 'default.jpg'}) center/cover`;
 
-    section.innerHTML = `
-      <h4 class="font-weight-bold">${team.team}</h4>
-      <div class="d-flex justify-content-center align-items-center flex-wrap">
-        <div class="text-center m-2">
-          <img src="${team.image1 || 'default.jpg'}" class="player-image">
-          <h5>${team.name1}</h5>
-        </div>
-        <div class="text-center m-2">
-          <img src="${team.image2 || 'default.jpg'}" class="player-image">
-          <h5>${team.name2}</h5>
-        </div>
-      </div>
-      <div class="row mt-3">
-        ${tournaments.map(t => `
-          <div class="col">
-            <div class="d-flex flex-column align-items-center">
-              <img src="${t.trophy}" class="trophy-img">
-              <span class="tournament">${t.name}</span>
+        section.innerHTML = `
+        <h4 class="font-weight-bold">${team.team}</h4>
+        <div class="d-flex justify-content-center align-items-center flex-wrap">
+            <div class="text-center m-2">
+            <img src="${team.image1 || 'default.jpg'}" class="player-image">
+            <h5>${team.name1}</h5>
             </div>
-          </div>`).join("")}
-      </div>
-    `;
+            <div class="text-center m-2">
+            <img src="${team.image2 || 'default.jpg'}" class="player-image">
+            <h5>${team.name2}</h5>
+            </div>
+        </div>
+        <div class="row mt-3">
+            ${tournaments.map(t => `
+            <div class="col">
+                <div class="d-flex flex-column align-items-center">
+                <img src="${t.trophy}" class="trophy-img">
+                <span class="tournament">${t.name}</span>
+                </div>
+            </div>`).join("")}
+        </div>
+        `;
 
-    container.appendChild(section);
-  });
-};
+        container.appendChild(section);
+    });
+    };
 
 
     // Filtros en tiempo real
