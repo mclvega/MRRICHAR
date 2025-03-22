@@ -1,244 +1,220 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <link rel="icon" type="image/png" href="./logo.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css" type="text/css">
-    <title>MRRICHAR - Campeones</title>
-    <style>
-        html {
-            scroll-behavior: smooth; /* Scroll suave */
-        }
-    </style>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="./logo.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MRRICHAR - Campeones</title>
+
+  <!-- Bootstrap & Fonts -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background: url('./fondo-default.png') no-repeat center center fixed;
+      background-size: cover;
+      background-color: #011EA0;
+      font-family: 'Nunito', sans-serif;
+      color: white;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    }
+
+    .player-section {
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      background-blend-mode: overlay;
+    }
+
+    .player-image {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 10px;
+    }
+
+    .trophy-img {
+      height: 60px;
+    }
+
+    .tournament {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .title {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .logo {
+      width: 200px;
+    }
+
+    .fixed-img {
+      position: fixed;
+      z-index: 1;
+    }
+
+    .fixed-img.left {
+      left: 0;
+    }
+
+    .fixed-img.right {
+      right: 0;
+    }
+
+    .efootball-image {
+      bottom: -100px;
+      right: 10px;
+      height: 300px;
+    }
+
+    input::placeholder {
+      color: #ccc;
+      font-weight: 300;
+    }
+  </style>
 </head>
+<body>
+  <!-- Opcionales decorativos -->
+  <!-- <img class="fixed-img left" src="izq.png" alt="Decoración izquierda">
+  <img class="fixed-img right" src="der.png" alt="Decoración derecha">
+  <img class="fixed-img efootball-image" src="./efootball.png" alt="eFootball"> -->
 
-<body> 
-    <div class="container mt-5">
-        <div class="title">
-            <img class="logo" src="./logo.png" alt="Logo">
-            <h1><strong>Comunidad de eFootball</strong></h1> 
-        </div>
-        
-        <!-- Navegación -->
-        <nav>
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#campeones">Campeones</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </nav>
-        
-        <div class="section">
-            <div id="video-redes" class="video-container">
-                <div>
-                    <video class="responsive-video" controls src="FollowIG.mp4" type="video/mp4" autoplay loop muted></video>
-                    <h3><a href="https://www.instagram.com/mrrichar.tw/" target="_blank">Instagram: @mrrichar.tw</a></h3>
-                </div>
-                <div>
-                    <video class="responsive-video" controls src="FollowingTW.mp4" type="video/mp4" autoplay loop muted></video>
-                    <h3><a href="https://www.twitch.tv/mrrichar_" target="_blank">Twitch: mrrichar_</a></h3>
-                </div>
-            </div>
-        </div>
-        
-       
-
-<!-- Sección Campeones -->
-<div id="campeones" class="section">
-    <div class= "champion"><h2>🏆 Campeones</h2></div>
-     <!-- Navegación campeonatos-->
-     <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item">
-            <a class="nav-link active" id="individual-tab" data-toggle="tab" href="#individual" role="tab" aria-controls="individual" aria-selected="true">Individual</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="cooperative-tab" data-toggle="tab" href="#cooperative" role="tab" aria-controls="cooperative" aria-selected="false">Cooperativo</a>
-        </li>
-    </ul>
-    <div class="tab-content mt-3" id="myTabContent">
-        <!-- Sección Campeones -->
-        <div class="tab-pane fade show active" id="individual" role="tabpanel" aria-labelledby="individual-tab">
-            <div class="row mb-3">
-                <div class="col m-1">
-                    <input type="text" id="searchPlayerInd" class="form-control" placeholder="Buscar por jugador...">
-                </div>
-                <div class="col m-1">
-                    <input type="text" id="searchTournamentInd" class="form-control" placeholder="Buscar por torneo...">
-                </div>
-                <div id="players-container" class="d-flex flex-column justify-content-center mt-4"></div>
-            </div>
-        </div>
+  <div class="container mt-5">
+    <div class="title">
+      <img class="logo" src="./logo.png" alt="Logo">
+      <h1 class="font-weight-bold">Campeones de la Comunidad</h1>
     </div>
-    <div>
-		<ul class="nav nav-tabs" id="myTab" role="tablist">
-            		<li class="nav-item">
-                		<a class="nav-link" id="individual-tab" data-toggle="tab" href="#individual" role="tab" aria-controls="individual" aria-selected="false">Individual</a>
-            		</li>
-            		<li class="nav-item">
-                		<a class="nav-link active" id="cooperative-tab" data-toggle="tab" href="#cooperative" role="tab" aria-controls="cooperative" aria-selected="true">Cooperativo</a>
-            		</li>
-       		 </ul>
-	</div>
-    <div class="tab-content mt-3" id="myTabContent">
-        <!-- Sección Campeones -->
-        <div class="tab-pane fade show active" id="cooperative" role="tabpanel" aria-labelledby="cooperative-tab">
-            <div class="mt-6"style="max-width: 1100px; margin: 0 auto;">
-                <input type="text" id="searchPlayerCoop" placeholder="Buscar equipo" class="mb-4 p-2 border border-gray-300 rounded">
-                <div id="teamsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+
+    <div class="row mb-3">
+      <div class="col-md-6 mb-2">
+        <button class="btn btn-light btn-block font-weight-bold" onclick="generatePlayers(false)">Individual</button>
+      </div>
+      <div class="col-md-6 mb-2">
+        <button class="btn btn-light btn-block font-weight-bold" onclick="generateTeams(true)">Grupal</button>
+      </div>
+    </div>
+
+    <div class="row mb-4">
+      <div class="col-md-6 mb-2">
+        <input type="text" id="searchPlayer" class="form-control" placeholder="Buscar por jugador...">
+      </div>
+      <div class="col-md-6 mb-2">
+        <input type="text" id="searchTournament" class="form-control" placeholder="Buscar por torneo...">
+      </div>
+    </div>
+
+    <div id="players-container"></div>
+    <div id="teams-container"></div>
+  </div>
+
+  <script>
+    const fetchData = async (file) => {
+      try {
+        const response = await fetch(file);
+        let data = await response.json();
+        return data.sort((a, b) => b.tournaments.length - a.tournaments.length);
+      } catch (error) {
+        console.error(`Error al cargar ${file}:`, error);
+        return [];
+      }
+    };
+
+    const generatePlayers = async (isGroup) => {
+      const container = document.getElementById("players-container");
+      container.innerHTML = "";
+      document.getElementById("teams-container").innerHTML = "";
+
+      const searchPlayer = document.getElementById("searchPlayer").value.toLowerCase();
+      const searchTournament = document.getElementById("searchTournament").value.toLowerCase();
+      const players = await fetchData("./players.json");
+
+      players.forEach(player => {
+        if (searchPlayer && !player.name.toLowerCase().includes(searchPlayer)) return;
+
+        let tournaments = isGroup
+          ? player.tournaments.filter(t => t.group)
+          : player.tournaments.filter(t => !t.group);
+
+        if (searchTournament)
+          tournaments = tournaments.filter(t => t.name.toLowerCase().includes(searchTournament));
+
+        if (tournaments.length === 0) return;
+
+        const section = document.createElement("div");
+        section.className = "player-section";
+        section.style.background = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${player.backgroundImage || 'default.jpg'}) center/cover`;
+
+        section.innerHTML = `
+          <img src="${player.image || 'default.jpg'}" class="player-image">
+          <h5 class="font-weight-bold">${player.name}</h5>
+          <div class="row mt-3">${tournaments.map(t => `
+            <div class="col">
+              <div class="d-flex flex-column align-items-center">
+                <img src="${t.trophy}" class="trophy-img">
+                <span class="tournament">${t.name}</span>
               </div>
-                <div id="teams-container" class="d-flex flex-wrap justify-content-center mt-4"></div>
-            </div>
-        </div>
-    </div>
-</div>
+            </div>`).join("")}
+          </div>
+        `;
 
-<script>
-    async function fetchPlayers() {
-        try {
-            const response = await fetch("./players.json");
-            let data = await response.json();
-            data = data.sort((a, b) => b.tournaments.length - a.tournaments.length);
-            return data;
-        } catch (error) {
-            console.error("Error al cargar los jugadores:", error);
-            return [];
-        }
-    }
+        container.appendChild(section);
+      });
+    };
 
-    async function generatePlayers() {
-        const container = document.getElementById("players-container");
-        container.innerHTML = "";
+    const generateTeams = async () => {
+      const container = document.getElementById("teams-container");
+      container.innerHTML = "";
+      document.getElementById("players-container").innerHTML = "";
 
-        const searchPlayer = document.getElementById("searchPlayerInd").value.toLowerCase();
-        const searchTournament = document.getElementById("searchTournamentInd").value.toLowerCase();
+      const searchPlayer = document.getElementById("searchPlayer").value.toLowerCase();
+      const searchTournament = document.getElementById("searchTournament").value.toLowerCase();
+      const teams = await fetchData("./teams.json");
 
-        const players = await fetchPlayers();
+      teams.forEach(team => {
+        if (searchPlayer && !team.name.toLowerCase().includes(searchPlayer)) return;
 
-        players.forEach(player => {
-            if (searchPlayer && !player.name.toLowerCase().includes(searchPlayer)) return;
+        let tournaments = team.tournaments;
+        if (searchTournament)
+          tournaments = tournaments.filter(t => t.name.toLowerCase().includes(searchTournament));
 
-            const filteredTournaments = player.tournaments.filter(tournament => 
-                searchTournament === "" || tournament.name.toLowerCase().includes(searchTournament)
-            );
+        if (tournaments.length === 0) return;
 
-            if (filteredTournaments.length === 0) return;
+        const section = document.createElement("div");
+        section.className = "player-section";
+        section.style.background = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${team.backgroundImage || 'default.jpg'}) center/cover`;
 
-            const section = document.createElement("div");
-            section.classList.add("player-section");
-            section.style.background = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${player.backgroundImage || 'default.jpg'})`;
-            section.style.backgroundSize ="cover";
-            section.style.backgroundPosition = "center";
+        section.innerHTML = `
+          <img src="${team.image1 || 'default.jpg'}" class="player-image">
+          <img src="${team.image2 || 'default.jpg'}" class="player-image">
+          <h5 class="font-weight-bold">${team.playerName1}</h5>
+          <h5 class="font-weight-bold">${team.playerName2}</h5>
+          <div class="row mt-3">${tournaments.map(t => `
+            <div class="col">
+              <div class="d-flex flex-column align-items-center">
+                <img src="${t.trophy}" class="trophy-img">
+                <span class="tournament">${t.name}</span>
+              </div>
+            </div>`).join("")}
+          </div>
+        `;
 
-            const playerDetails = document.createElement("div");
-            playerDetails.classList.add("player-details");
+        container.appendChild(section);
+      });
+    };
 
-            const playerImage = document.createElement("img");
-            playerImage.src = player.image || "default.jpg";
-            playerImage.classList.add("player-image");
+    // Filtros en tiempo real
+    document.getElementById("searchPlayer").addEventListener("input", generateTeams);
+    document.getElementById("searchTournament").addEventListener("input", generateTeams);
 
-            const title = document.createElement("h5");
-            title.textContent = player.name;
-
-            playerDetails.appendChild(playerImage);
-            playerDetails.appendChild(title);
-
-            const row = document.createElement("div");
-            row.classList.add("row", "m-1");
-
-            filteredTournaments.forEach(tournament => {
-                const col = document.createElement("div");
-                col.classList.add("col");
-
-                const div = document.createElement("div");
-                div.classList.add("d-flex", "flex-column", "align-items-center");
-
-                const trophy = document.createElement("img");
-                trophy.src = tournament.trophy;
-                trophy.classList.add("trophy-img");
-                div.appendChild(trophy);
-
-                const name = document.createElement("span");
-                name.classList.add("tournament");
-                name.textContent = tournament.name;
-
-                div.appendChild(name);
-                col.appendChild(div);
-                row.appendChild(col);
-            });
-
-            playerDetails.appendChild(row);
-            section.appendChild(playerDetails);
-            container.appendChild(section);
-        });
-    }
-
-    document.getElementById("searchPlayerInd").addEventListener("input", generatePlayers);
-    document.getElementById("searchTournamentInd").addEventListener("input", generatePlayers);
-
-    document.addEventListener("DOMContentLoaded", generatePlayers);
-</script>
-    
-<script>
-    async function loadTeams() {
-    const response = await fetch('teams.json');
-    const teams = await response.json();
-    const teamsContainer = document.getElementById('teamsContainer');
-
-    function renderTeams(filteredTeams) {
-        teamsContainer.innerHTML = '';
-        filteredTeams.forEach(team => {
-            const teamCard = document.createElement('div');
-            teamCard.className = 'teams-section';
-
-            teamCard.innerHTML = `
-                <div class="relative">
-                    <div class="relative" style="background-image: url('${team.backgroundImage || 'default-background.jpg'}'); background-size: cover; background-position: center;">
-                    <h4>${team.team}</h4>
-                    <div class="flex justify-center gap-4 mb-2">
-                        <img src="${team.image1 || 'default.jpg'}" alt="Player 1" class="teams-image">
-                        <img src="${team.image2 || 'default.jpg'}" alt="Player 2" class="teams-image">
-                    </div>
-                    <div>
-                        <p><h5>${team.name1} & ${team.name2}</h5></p>
-                        <div class="flex space-x-2 mt-2">
-                            ${team.tournaments.map(tournament => `
-                                <div class="flex flex-column items-center">
-                                    <img src="${tournament.trophy}" alt="Trophy" class="trophy-img">
-                                    <span>${tournament.name}</span>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
-                </div>
-            `;
-            teamsContainer.appendChild(teamCard);
-        });
-    }
-
-    document.getElementById('searchPlayerCoop').addEventListener('input', (event) => {
-        const searchTerm = event.target.value.toLowerCase();
-        const filteredTeams = teams.filter(team =>
-            team.team.toLowerCase().includes(searchTerm) ||
-            team.name1.toLowerCase().includes(searchTerm) ||
-            team.name2.toLowerCase().includes(searchTerm)
-        );
-        renderTeams(filteredTeams);
-    });
-
-    renderTeams(teams);
-}
-
-loadTeams();
-</script>
-
-
-
+    // Cargar vista inicial
+    document.addEventListener("DOMContentLoaded", () => generateTeams(false));
+  </script>
 </body>
-<footer>
-
-        <p>Create by MCLVEGA & breaking by mrrichar.</p>
-    </footer>
 </html>
