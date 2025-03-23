@@ -167,6 +167,10 @@
       {
         "name": "Liga A T3",
         "trophy": "./league.png"
+      },
+      {
+        "name": "Miedo a Bruno y Brian Carita",
+        "trophy": "./league.png"
       }
     ]
   },
