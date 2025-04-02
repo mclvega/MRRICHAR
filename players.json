@@ -82,6 +82,9 @@
         {
           "name": "Dream Team",
           "trophy": "./cup.png"
+        },
+          "name": "Bienvenida",
+          "trophy": "./cup.png"
         }
       ]
   },
