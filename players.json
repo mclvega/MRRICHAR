@@ -136,6 +136,10 @@
       {
         "name": "Full Liga",
         "trophy": "./cup.png"
+      },
+      {
+        "name": "De Pobres 2.0",
+        "trophy": "./cup.png"
       }
     ]
   },
