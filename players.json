@@ -206,6 +206,10 @@
       {
         "name": "Liga B T5",
         "trophy": "./league.png"
+      },
+       {
+        "name": "Liga B T8",
+        "trophy": "./league.png"
       }
     ]
   },
