@@ -69,5 +69,19 @@
       }
   ]
 }
+  {
+  "team": "LOS CERVECEROS",
+  "name1": "GADIEL",
+  "image1":"",
+  "name2": "ANTONI",
+  "image2":"",
+  "backgroundImage": "./fondo-estrellas.jpg",
+  "tournaments": [
+      {
+          "name": "Torneo Coop",
+          "trophy": "./cup.png"
+      }
+  ]
+}
 
 ]
