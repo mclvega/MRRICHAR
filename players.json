@@ -140,6 +140,10 @@
       {
         "name": "De Pobres 2.0",
         "trophy": "./cup.png"
+      },
+      {
+        "name": "Copa Liga T8",
+        "trophy": "./league.png"
       }
     ]
   },
@@ -177,7 +181,7 @@
         "trophy": "./league.png"
       },
       {
-        "name": "Miedo a Bruno y Brian Carita",
+        "name": "Liga A T8",
         "trophy": "./league.png"
       }
     ]
@@ -294,6 +298,16 @@
       {
         "name": "Copa Liga T3",
         "trophy": "./league.png"
+      }
+    ]
+  },
+  {
+    "name": "ANTONI",
+    "backgroundImage": "./fondo-estrellas.jpg",
+    "tournaments": [
+      {
+        "name": "Copa de Muertos 2.0",
+        "trophy": "./cup.png"
       }
     ]
   },
