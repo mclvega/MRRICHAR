@@ -86,6 +86,10 @@
         {
           "name": "Bienvenida",
           "trophy": "./cup.png"
+        },
+        {
+          "name": "Full Equipo - Selección",
+          "trophy": "./cup.png"
         }
       ]
   },
