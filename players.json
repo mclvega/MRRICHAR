@@ -187,6 +187,9 @@
       {
         "name": "Liga A T8",
         "trophy": "./league.png"
+      },{
+        "name": "Sub 23",
+        "trophy": "./cup.png"
       }
     ]
   },
