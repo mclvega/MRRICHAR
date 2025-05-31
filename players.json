@@ -134,7 +134,7 @@
         "trophy": "./cup.png"
       },
       {
-        "name": "Relampago Potw Nocturno",
+        "name": "Relampago Potw 6.0 Nocturno",
         "trophy": "./cup.png"
       },
       {
@@ -239,7 +239,10 @@
       {
         "name": "Superliga 2025",
         "trophy": "./league.png"
-      }
+      },
+       "name": "Potw Potm Pots 7.0",
+        "trophy": "./cup.png"
+       }
     ]
   },
   {
