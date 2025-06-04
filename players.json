@@ -90,6 +90,10 @@
         {
           "name": "Full Equipo - Selección",
           "trophy": "./cup.png"
+        },
+         {
+          "name": "24 a 29 años",
+          "trophy": "./cup.png"
         }
       ]
   },
