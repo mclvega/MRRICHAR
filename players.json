@@ -191,7 +191,8 @@
       {
         "name": "Liga A T8",
         "trophy": "./league.png"
-      },{
+      },
+      {
         "name": "Sub 23",
         "trophy": "./cup.png"
       }
@@ -244,6 +245,7 @@
         "name": "Superliga 2025",
         "trophy": "./league.png"
       },
+      {
        "name": "Potw Potm Pots 7.0",
         "trophy": "./cup.png"
        }
