@@ -82,6 +82,20 @@
           "trophy": "./cup.png"
       }
   ]
+},
+  {
+  "team": "LOS LOKITOS",
+  "name1": "PABLO",
+  "image1":"",
+  "name2": "BRIAN :)",
+  "image2":"",
+  "backgroundImage": "./fondo-estrellas.jpg",
+  "tournaments": [
+      {
+          "name": "Torneo Coop",
+          "trophy": "./cup.png"
+      }
+  ]
 }
 
 ]
