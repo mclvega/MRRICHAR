@@ -195,6 +195,10 @@
       {
         "name": "Sub 23",
         "trophy": "./cup.png"
+      },
+       {
+        "name": "Memorable + Gp",
+        "trophy": "./cup.png"
       }
     ]
   },
