@@ -296,6 +296,16 @@
     ]
   },
   {
+    "name": "SANTI",
+    "backgroundImage": "./fondo-estrellas.jpg",
+    "tournaments": [
+      {
+        "name": "4 Paises",
+        "trophy": "./cup.png"
+      }
+    ]
+  },
+  {
     "name": "BRUNO",
     "backgroundImage": "./fondo-estrellas.jpg",
     "tournaments": [
