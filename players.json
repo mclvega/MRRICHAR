@@ -94,6 +94,10 @@
          {
           "name": "24 a 29 años",
           "trophy": "./cup.png"
+        },
+        {
+          "name": "Full lloros",
+          "trophy": "./cup.png"
         }
       ]
   },
@@ -202,6 +206,10 @@
       },
       {
         "name": "Rompiendo Giles #2",
+        "trophy": "./cup.png"
+      },
+      {
+        "name": "Rompiendo Giles #3",
         "trophy": "./cup.png"
       }
     ]
