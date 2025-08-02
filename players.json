@@ -284,7 +284,7 @@
         "trophy": "./league.png"
       },
        {
-        "name": "Equipos Full + Epic",
+        "name": "3 equipos",
         "trophy": "./cup.png"
       }
     ]
@@ -434,4 +434,5 @@
   }
 
 ]
+
 
