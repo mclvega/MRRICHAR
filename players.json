@@ -271,6 +271,24 @@
        }
     ]
   },
+   {
+    "name": "FACU",
+    "backgroundImage": "./fondo-estrellas.jpg",
+    "tournaments": [
+      {
+        "name": "Equipos Full + Epic",
+        "trophy": "./cup.png"
+      },
+      {
+        "name": "Liga B T6",
+        "trophy": "./league.png"
+      },
+       {
+        "name": "Equipos Full + Epic",
+        "trophy": "./cup.png"
+      }
+    ]
+  },
   {
     "name": "LYLDEF",
     "backgroundImage": "./fondo-estrellas.jpg",
@@ -289,20 +307,7 @@
       }
     ]
   },
-  {
-    "name": "FACU",
-    "backgroundImage": "./fondo-estrellas.jpg",
-    "tournaments": [
-      {
-        "name": "Equipos Full + Epic",
-        "trophy": "./cup.png"
-      },
-      {
-        "name": "Liga B T6",
-        "trophy": "./league.png"
-      }
-    ]
-  },
+
   {
     "name": "SANTI",
     "backgroundImage": "./fondo-estrellas.jpg",
@@ -429,3 +434,4 @@
   }
 
 ]
+
