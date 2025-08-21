@@ -157,6 +157,7 @@
         "name": "Copa Liga T8",
         "trophy": "./league.png"
       },
+      {
       "name": "Torneo Draft",
         "trophy": "./cup.png"
       }
@@ -437,6 +438,7 @@
   }
 
 ]
+
 
 
 
