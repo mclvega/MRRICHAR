@@ -383,6 +383,12 @@
       {
         "name": "Copa Liga NTDC T5",
         "trophy": "./league.png"
+      },
+      "name": "POTW 8.0",
+        "trophy": "./cup.png"
+      },
+      "name": "2 Paises",
+        "trophy": "./cup.png"
       }
     ]
   },
@@ -438,6 +444,7 @@
   }
 
 ]
+
 
 
 
