@@ -311,6 +311,24 @@
       }
     ]
   },
+   {
+    "name": "THIAGO",
+    "backgroundImage": "./fondo-estrellas.jpg",
+    "tournaments": [
+      {
+        "name": "Copa Liga NTDC T5",
+        "trophy": "./league.png"
+      },
+      {
+      "name": "POTW 8.0",
+        "trophy": "./cup.png"
+      },
+     {
+      "name": "2 Paises",
+        "trophy": "./cup.png"
+      }
+    ]
+  },
 
   {
     "name": "SANTI",
@@ -377,22 +395,6 @@
     ]
   },
   {
-    "name": "THIAGO",
-    "backgroundImage": "./fondo-estrellas.jpg",
-    "tournaments": [
-      {
-        "name": "Copa Liga NTDC T5",
-        "trophy": "./league.png"
-      },
-      "name": "POTW 8.0",
-        "trophy": "./cup.png"
-      },
-      "name": "2 Paises",
-        "trophy": "./cup.png"
-      }
-    ]
-  },
-  {
     "name": "JUANJO",
     "backgroundImage": "./fondo-estrellas.jpg",
     "tournaments": [
@@ -444,6 +446,7 @@
   }
 
 ]
+
 
 
 
