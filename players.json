@@ -160,6 +160,10 @@
       {
       "name": "Torneo Draft",
         "trophy": "./cup.png"
+      },
+      {
+      "name": "Torneo Sub 23",
+        "trophy": "./cup.png"
       }
     ]
   },
@@ -249,6 +253,10 @@
       },
       {
         "name": "Rompiendo Limites #1",
+        "trophy": "./cup.png"
+      },
+      {
+      "name": "Torneo +30",
         "trophy": "./cup.png"
       }
     ]
@@ -446,6 +454,7 @@
   }
 
 ]
+
 
 
 
