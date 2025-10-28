@@ -96,6 +96,19 @@
           "trophy": "./cup.png"
       }
   ]
-}
+},
+  {
+  "team": "THE BRIANS",
+  "name1": "Brian :)",
+  "image1":"",
+  "name2": "BrianCASLA",
+  "image2":"",
+  "backgroundImage": "./fondo-estrellas.jpg",
+  "tournaments": [
+      {
+          "name": "Torneo Coop",
+          "trophy": "./cup.png"
+      }
+  ]
 
 ]
