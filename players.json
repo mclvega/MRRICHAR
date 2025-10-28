@@ -258,6 +258,10 @@
       {
       "name": "Torneo +30",
         "trophy": "./cup.png"
+      },
+      {
+      "name": "Relampago Nocturno",
+        "trophy": "./cup.png"
       }
     ]
   },
@@ -454,6 +458,7 @@
   }
 
 ]
+
 
 
 
