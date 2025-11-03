@@ -164,6 +164,10 @@
       {
       "name": "Torneo Sub 23",
         "trophy": "./cup.png"
+      }, 
+      {
+      "name": "Full Equipo Elección",
+        "trophy": "./cup.png"
       }
     ]
   },
@@ -261,6 +265,10 @@
       },
       {
       "name": "Relampago Nocturno",
+        "trophy": "./cup.png"
+      },
+      {
+      "name": "Relampago Nocturno II",
         "trophy": "./cup.png"
       }
     ]
@@ -458,6 +466,7 @@
   }
 
 ]
+
 
 
 
