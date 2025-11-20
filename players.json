@@ -223,6 +223,10 @@
       {
         "name": "Rompiendo Giles #3",
         "trophy": "./cup.png"
+      },
+      {
+        "name": "Relampago en Discord",
+        "trophy": "./cup.png"
       }
     ]
   },
@@ -423,6 +427,16 @@
         "trophy": "./league.png"
       }
     ]
+  }, 
+  {
+    "name": "BRIANCASLA",
+    "backgroundImage": "./fondo-estrellas.jpg",
+    "tournaments": [
+      {
+        "name": "3 PAISES SORTEADOS",
+        "trophy": "./cup.png"
+      }
+    ]
   },
   {
     "name": "BRIAN",
@@ -466,6 +480,7 @@
   }
 
 ]
+
 
 
 
