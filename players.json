@@ -168,7 +168,11 @@
       {
       "name": "Full Equipo Elección",
         "trophy": "./cup.png"
-      }
+      },
+       {
+          "name": "Full Memorables",
+          "trophy": "./cup.png"
+        }
     ]
   },
   {
@@ -314,6 +318,14 @@
        {
         "name": "3 equipos",
         "trophy": "./cup.png"
+      },
+      {
+        "name": "Torneo 2 Vidas 2026",
+        "trophy": "./cup.png"
+      },
+       {
+        "name": "Torneo POTW I 2026",
+        "trophy": "./cup.png"
       }
     ]
   },
@@ -349,6 +361,16 @@
       },
      {
       "name": "2 Paises",
+        "trophy": "./cup.png"
+      }
+    ]
+  },
+  {
+    "name": "BOCHA",
+    "backgroundImage": "./fondo-estrellas.jpg",
+    "tournaments": [
+      {
+        "name": "Full equipos (Chill)",
         "trophy": "./cup.png"
       }
     ]
@@ -480,6 +502,7 @@
   }
 
 ]
+
 
 
 
