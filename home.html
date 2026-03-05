@@ -245,6 +245,8 @@
     // -----------------------------
     let currentSection = "home";   // home | champions | ranking | goal
     let championsMode = "players"; // players | teams
+    let rankingRenderedOnce = false;
+    let goalRenderedOnce = false;
 
     function showSection(section) {
       currentSection = section;
@@ -261,13 +263,23 @@
         if (championsMode === "players") generatePlayers(false);
         if (championsMode === "teams") generateTeams();
       }
-      if (section === "ranking") {
-        generateRanking();
-      }
-      if (section === "goal") {
-        generateGoals();
-      }
-    }
+     if (section === "ranking") {
+  if (!rankingRenderedOnce) {
+    generateRanking();
+    rankingRenderedOnce = true;
+  } else {
+    generateRanking(); // si querés que se refresque siempre, dejalo así
+  }
+}
+
+if (section === "goal") {
+  if (!goalRenderedOnce) {
+    generateGoals();
+    goalRenderedOnce = true;
+  } else {
+    generateGoals();
+  }
+}
 
     function setMode(mode) {
       championsMode = mode;
@@ -570,6 +582,7 @@
   </script>
 </body>
 </html>
+
 
 
 
