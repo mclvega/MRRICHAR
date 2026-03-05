@@ -1,5 +1,18 @@
 [
-  {"name":"FACU","points":18,"played":3,"wins":3},
-  {"name":"BRIAN","points":12,"played":2,"wins":2},
-  {"name":"LOKI","points":9,"played":2,"wins":1}
+  { "name": "Loki", "points": 0, "participations": 1, "quarters": 0, "semis": 0, "finals": 0, "titles": 0, "wo": 0 },
+  { "name": "Facu", "points": 0, "participations": 1, "quarters": 0, "semis": 0, "finals": 0, "titles": 0, "wo": 0 },
+  { "name": "Gadiel", "points": 0, "participations": 1, "quarters": 0, "semis": 0, "finals": 0, "titles": 0, "wo": 0 },
+  { "name": "Thiago", "points": 0, "participations": 1, "quarters": 0, "semis": 0, "finals": 0, "titles": 0, "wo": 0 },
+  { "name": "Richard", "points": 0, "participations": 1, "quarters": 0, "semis": 0, "finals": 0, "titles": 0, "wo": 0 },
+  { "name": "McL Vega", "points": 0, "participations": 1, "quarters": 0, "semis": 0, "finals": 0, "titles": 0, "wo": 0 },
+  { "name": "Brian Casla", "points": 0, "participations": 1, "quarters": 0, "semis": 0, "finals": 0, "titles": 0, "wo": 0 },
+  { "name": "Chori", "points": 0, "participations": 1, "quarters": 0, "semis": 0, "finals": 0, "titles": 0, "wo": 0 },
+  { "name": "Brian", "points": 0, "participations": 1, "quarters": 0, "semis": 0, "finals": 0, "titles": 0, "wo": 0 },
+  { "name": "Nico", "points": 0, "participations": 1, "quarters": 0, "semis": 0, "finals": 0, "titles": 0, "wo": 0 },
+  { "name": "Fonse", "points": 0, "participations": 1, "quarters": 0, "semis": 0, "finals": 0, "titles": 0, "wo": 0 },
+  { "name": "Juanjo", "points": 0, "participations": 1, "quarters": 0, "semis": 0, "finals": 0, "titles": 0, "wo": 0 },
+  { "name": "Richi", "points": 0, "participations": 1, "quarters": 0, "semis": 0, "finals": 0, "titles": 0, "wo": 0 },
+  { "name": "BH", "points": 0, "participations": 1, "quarters": 0, "semis": 0, "finals": 0, "titles": 0, "wo": 0 },
+  { "name": "Bocha", "points": 0, "participations": 1, "quarters": 0, "semis": 0, "finals": 0, "titles": 0, "wo": 0 },
+  { "name": "Orco", "points": 0, "participations": 1, "quarters": 0, "semis": 0, "finals": 0, "titles": 0, "wo": 0 }
 ]
