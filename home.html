@@ -96,8 +96,9 @@
       border-width: 2px;
     }
 
+    /* Bootstrap's .table-dark sets colors; keep background transparent and use card background */
     .table-dark {
-      background-color: rgba(0,0,0,0.55);
+      background-color: transparent;
     }
 
     .back-btn {
@@ -111,6 +112,18 @@
       background: rgba(255,255,255,0.12);
       font-weight: 700;
       margin: 4px 6px;
+    }
+
+    .rank-card {
+      background: rgba(0,0,0,0.55);
+      border-radius: 12px;
+      padding: 12px;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
+    }
+
+    .legend {
+      opacity: .85;
+      font-size: .85rem;
     }
   </style>
 </head>
@@ -197,6 +210,9 @@
     </div>
 
     <div id="ranking-container"></div>
+    <div class="legend mt-2">
+      Columnas: P (Participaciones) · QF (Cuartos/Clasificó) · SF (Semis) · F (Finales) · 🏆 (Campeonatos) · WO (W.O. en contra)
+    </div>
   </div>
 
   <!-- GOL DEL MES -->
@@ -239,9 +255,11 @@
       document.getElementById("ranking-section").style.display = (section === "ranking") ? "block" : "none";
       document.getElementById("goal-section").style.display = (section === "goal") ? "block" : "none";
 
-      // Clean old renders (optional)
+      // Render section content on demand
       if (section === "champions") {
-        setMode("players"); // default
+        // no reset forzado: mantiene lo último elegido
+        if (championsMode === "players") generatePlayers(false);
+        if (championsMode === "teams") generateTeams();
       }
       if (section === "ranking") {
         generateRanking();
@@ -258,19 +276,20 @@
     }
 
     // -----------------------------
-    // Util: fetch + sort
+    // Util: fetch
     // -----------------------------
     const fetchData = async (file) => {
       try {
         const response = await fetch(file, { cache: "no-store" });
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        let data = await response.json();
-        return data;
+        return await response.json();
       } catch (error) {
         console.error(`Error al cargar ${file}:`, error);
         return null;
       }
     };
+
+    const num = (v) => Number.isFinite(Number(v)) ? Number(v) : 0;
 
     // -----------------------------
     // Campeones: Individual
@@ -290,37 +309,35 @@
       players.sort((a, b) => (b.tournaments?.length || 0) - (a.tournaments?.length || 0));
 
       players.forEach(player => {
-        if (sp && !player.name.toLowerCase().includes(sp)) return;
+        if (sp && !(player.name || "").toLowerCase().includes(sp)) return;
 
         let tournaments = isGroup
           ? (player.tournaments || []).filter(t => t.group)
           : (player.tournaments || []).filter(t => !t.group);
 
         if (st) tournaments = tournaments.filter(t => (t.name || "").toLowerCase().includes(st));
-
         if (tournaments.length === 0) return;
 
         const section = document.createElement("div");
         section.className = "player-section";
-        section.style.background = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${player.backgroundImage || 'default.jpg'})`;
+        section.style.background = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${player.backgroundImage || './fondo-estrellas.jpg'})`;
         section.style.backgroundSize = "cover";
         section.style.backgroundPosition = "center";
 
         section.innerHTML = `
-          <img src="${player.image || 'default.jpg'}" class="player-image" alt="player">
-          <h5 class="font-weight-bold">${player.name}</h5>
+          <img src="${player.image || './default.jpg'}" class="player-image" alt="${player.name || 'player'}">
+          <h5 class="font-weight-bold">${player.name || "-"}</h5>
           <div class="row mt-3">
             ${tournaments.map(t => `
               <div class="col-6 col-md-3 mb-3">
                 <div class="d-flex flex-column align-items-center">
-                  <img src="${t.trophy}" class="trophy-img" alt="trophy">
-                  <span class="tournament">${t.name}</span>
+                  <img src="${t.trophy || './cup.png'}" class="trophy-img" alt="trophy">
+                  <span class="tournament">${t.name || ""}</span>
                 </div>
               </div>
             `).join("")}
           </div>
         `;
-
         container.appendChild(section);
       });
     };
@@ -342,8 +359,10 @@
       teams.sort((a, b) => (b.tournaments?.length || 0) - (a.tournaments?.length || 0));
 
       teams.forEach(team => {
+        const teamName = (team.team || "").toLowerCase();
         const fullTeamName = `${team.name1 || ""} ${team.name2 || ""}`.toLowerCase();
-        if (sp && !fullTeamName.includes(sp)) return;
+
+        if (sp && !teamName.includes(sp) && !fullTeamName.includes(sp)) return;
 
         let tournaments = team.tournaments || [];
         if (st) tournaments = tournaments.filter(t => (t.name || "").toLowerCase().includes(st));
@@ -351,7 +370,7 @@
 
         const section = document.createElement("div");
         section.className = "player-section";
-        section.style.background = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${team.backgroundImage || 'default.jpg'})`;
+        section.style.background = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${team.backgroundImage || './fondo-estrellas.jpg'})`;
         section.style.backgroundSize = "cover";
         section.style.backgroundPosition = "center";
 
@@ -359,11 +378,11 @@
           <h4 class="font-weight-bold">${team.team || "Equipo"}</h4>
           <div class="d-flex justify-content-center align-items-center flex-wrap">
             <div class="text-center m-2">
-              <img src="${team.image1 || 'default.jpg'}" class="player-image" alt="p1">
+              <img src="${team.image1 || './default.jpg'}" class="player-image" alt="${team.name1 || 'p1'}">
               <h5>${team.name1 || ""}</h5>
             </div>
             <div class="text-center m-2">
-              <img src="${team.image2 || 'default.jpg'}" class="player-image" alt="p2">
+              <img src="${team.image2 || './default.jpg'}" class="player-image" alt="${team.name2 || 'p2'}">
               <h5>${team.name2 || ""}</h5>
             </div>
           </div>
@@ -371,20 +390,21 @@
             ${tournaments.map(t => `
               <div class="col-6 col-md-3 mb-3">
                 <div class="d-flex flex-column align-items-center">
-                  <img src="${t.trophy}" class="trophy-img" alt="trophy">
-                  <span class="tournament">${t.name}</span>
+                  <img src="${t.trophy || './cup.png'}" class="trophy-img" alt="trophy">
+                  <span class="tournament">${t.name || ""}</span>
                 </div>
               </div>
             `).join("")}
           </div>
         `;
-
         container.appendChild(section);
       });
     };
 
     // -----------------------------
-    // Ranking 2026
+    // Ranking 2026 (tabla estilo liga)
+    // expected ranking.json items:
+    // { name, points, participations, quarters, semis, finals, titles, wo }
     // -----------------------------
     const generateRanking = async () => {
       const container = document.getElementById("ranking-container");
@@ -403,11 +423,24 @@
 
       const rows = ranking
         .filter(p => !q || (p.name || "").toLowerCase().includes(q))
-        .sort((a, b) => (b.points || 0) - (a.points || 0));
+        .sort((a, b) => {
+          // Puntos desc
+          const dp = num(b.points) - num(a.points);
+          if (dp !== 0) return dp;
+          // Desempates: títulos, finales, semis, cuartos, menos WO
+          const dt = num(b.titles) - num(a.titles);
+          if (dt !== 0) return dt;
+          const df = num(b.finals) - num(a.finals);
+          if (df !== 0) return df;
+          const ds = num(b.semis) - num(a.semis);
+          if (ds !== 0) return ds;
+          const dqf = num(b.quarters) - num(a.quarters);
+          if (dqf !== 0) return dqf;
+          return num(a.wo) - num(b.wo);
+        });
 
       const card = document.createElement("div");
-      card.className = "panel";
-      card.style.background = "rgba(0,0,0,0.55)";
+      card.className = "rank-card";
 
       card.innerHTML = `
         <div class="table-responsive">
@@ -416,19 +449,27 @@
               <tr>
                 <th>#</th>
                 <th>Jugador</th>
-                <th>Puntos</th>
-                <th>Jugados</th>
-                <th>Victorias</th>
+                <th>Pts</th>
+                <th>P</th>
+                <th>QF</th>
+                <th>SF</th>
+                <th>F</th>
+                <th>🏆</th>
+                <th>WO</th>
               </tr>
             </thead>
             <tbody>
               ${rows.map((p, idx) => `
                 <tr>
-                  <td>${idx + 1}</td>
+                  <td><b>${idx + 1}</b></td>
                   <td>${p.name || "-"}</td>
-                  <td><b>${p.points ?? 0}</b></td>
-                  <td>${p.played ?? "-"}</td>
-                  <td>${p.wins ?? "-"}</td>
+                  <td><b>${num(p.points)}</b></td>
+                  <td>${num(p.participations)}</td>
+                  <td>${num(p.quarters)}</td>
+                  <td>${num(p.semis)}</td>
+                  <td>${num(p.finals)}</td>
+                  <td>${num(p.titles)}</td>
+                  <td>${num(p.wo)}</td>
                 </tr>
               `).join("")}
             </tbody>
@@ -441,7 +482,7 @@
 
     // -----------------------------
     // Gol del Mes
-    // goals.json: [{month:"Marzo 2026", player:"FACU", title:"...", youtubeId:"xxxx", description:"..."}]
+    // goals.json: [{month, player, title, youtubeId, description}]
     // -----------------------------
     const generateGoals = async () => {
       const container = document.getElementById("goal-container");
@@ -458,11 +499,10 @@
         return;
       }
 
-      const items = goals
-        .filter(g => {
-          const s = `${g.month || ""} ${g.player || ""} ${g.title || ""}`.toLowerCase();
-          return !q || s.includes(q);
-        });
+      const items = goals.filter(g => {
+        const s = `${g.month || ""} ${g.player || ""} ${g.title || ""}`.toLowerCase();
+        return !q || s.includes(q);
+      });
 
       if (items.length === 0) {
         container.innerHTML = `<div class="panel" style="background: rgba(0,0,0,0.55);">
@@ -476,6 +516,7 @@
         const card = document.createElement("div");
         card.className = "panel";
         card.style.background = "rgba(0,0,0,0.55)";
+
         const yt = g.youtubeId ? `
           <div class="embed-responsive embed-responsive-16by9" style="border-radius:10px; overflow:hidden;">
             <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/${g.youtubeId}" allowfullscreen></iframe>
@@ -494,13 +535,12 @@
     };
 
     // -----------------------------
-    // Search handlers (dependiendo de sección)
+    // Search handlers
     // -----------------------------
     document.addEventListener("DOMContentLoaded", () => {
-      // HOME by default
       showSection("home");
 
-      // Campeones search
+      // Campeones: inputs comparten para ambos modos
       document.getElementById("searchPlayer").addEventListener("input", () => {
         if (currentSection !== "champions") return;
         if (championsMode === "players") generatePlayers(false);
@@ -512,13 +552,13 @@
         if (championsMode === "teams") generateTeams();
       });
 
-      // Ranking search
+      // Ranking
       document.getElementById("searchRanking").addEventListener("input", () => {
         if (currentSection !== "ranking") return;
         generateRanking();
       });
 
-      // Goals search
+      // Goals
       document.getElementById("searchGoal").addEventListener("input", () => {
         if (currentSection !== "goal") return;
         generateGoals();
