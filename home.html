@@ -410,21 +410,77 @@
   const container = document.getElementById("ranking-container");
   container.innerHTML = "";
 
-  const ranking = await fetchData("./ranking.json");
+  const q = (document.getElementById("searchRanking").value || "").toLowerCase();
 
-  // Debug visible
-  const debug = document.createElement("div");
-  debug.className = "panel";
-  debug.style.background = "rgba(0,0,0,0.55)";
-  debug.innerHTML = `
-    <h5 class="font-weight-bold mb-2">DEBUG ranking.json</h5>
-    <div style="opacity:.9;">
-      Cargó: <b>${ranking ? "SI" : "NO"}</b><br>
-      Tipo: <b>${Array.isArray(ranking) ? "Array" : typeof ranking}</b><br>
-      Primer item: <pre style="color:white; text-shadow:none; white-space:pre-wrap;">${ranking && ranking[0] ? JSON.stringify(ranking[0], null, 2) : "N/A"}</pre>
+  const ranking = await fetchData("./ranking.json");
+  if (!ranking) {
+    container.innerHTML = `<div class="panel" style="background: rgba(0,0,0,0.55);">
+      <h4 class="font-weight-bold mb-2">No se encontró ranking.json</h4>
+      <div style="opacity:.9;">Creá el archivo <b>ranking.json</b> en la raíz del sitio.</div>
+    </div>`;
+    return;
+  }
+
+  const rows = ranking
+    .filter(p => !q || (p.name || "").toLowerCase().includes(q))
+    .sort((a, b) => {
+      const dp = num(b.points) - num(a.points);
+      if (dp !== 0) return dp;
+
+      const dt = num(b.titles) - num(a.titles);
+      if (dt !== 0) return dt;
+
+      const df = num(b.finals) - num(a.finals);
+      if (df !== 0) return df;
+
+      const ds = num(b.semis) - num(a.semis);
+      if (ds !== 0) return ds;
+
+      const dqf = num(b.quarters) - num(a.quarters);
+      if (dqf !== 0) return dqf;
+
+      return num(a.wo) - num(b.wo);
+    });
+
+  const card = document.createElement("div");
+  card.className = "rank-card";
+
+  card.innerHTML = `
+    <div class="table-responsive">
+      <table class="table table-dark table-striped mb-0">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Jugador</th>
+            <th>Pts</th>
+            <th>P</th>
+            <th>QF</th>
+            <th>SF</th>
+            <th>F</th>
+            <th>🏆</th>
+            <th>WO</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${rows.map((p, idx) => `
+            <tr>
+              <td><b>${idx + 1}</b></td>
+              <td>${p.name || "-"}</td>
+              <td><b>${num(p.points)}</b></td>
+              <td>${num(p.participations)}</td>
+              <td>${num(p.quarters)}</td>
+              <td>${num(p.semis)}</td>
+              <td>${num(p.finals)}</td>
+              <td>${num(p.titles)}</td>
+              <td>${num(p.wo)}</td>
+            </tr>
+          `).join("")}
+        </tbody>
+      </table>
     </div>
   `;
-  container.appendChild(debug);
+
+  container.appendChild(card);
 };
 
     // -----------------------------
@@ -514,5 +570,6 @@
   </script>
 </body>
 </html>
+
 
 
