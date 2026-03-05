@@ -81,14 +81,8 @@
       font-weight: 300;
     }
 
-    h1 {
-      font-size: 2rem;
-    }
-    @media (min-width: 768px) {
-      h1 {
-        font-size: 2.5rem;
-      }
-    }
+    h1 { font-size: 2rem; }
+    @media (min-width: 768px) { h1 { font-size: 2.5rem; } }
 
     .btn-home {
       font-weight: 800;
@@ -97,13 +91,9 @@
     }
 
     /* Bootstrap's .table-dark sets colors; keep background transparent and use card background */
-    .table-dark {
-      background-color: transparent;
-    }
+    .table-dark { background-color: transparent; }
 
-    .back-btn {
-      margin-bottom: 12px;
-    }
+    .back-btn { margin-bottom: 12px; }
 
     .badge-soft {
       display: inline-block;
@@ -259,27 +249,29 @@
 
       // Render section content on demand
       if (section === "champions") {
-        // no reset forzado: mantiene lo último elegido
         if (championsMode === "players") generatePlayers(false);
         if (championsMode === "teams") generateTeams();
       }
-     if (section === "ranking") {
-  if (!rankingRenderedOnce) {
-    generateRanking();
-    rankingRenderedOnce = true;
-  } else {
-    generateRanking(); // si querés que se refresque siempre, dejalo así
-  }
-}
 
-if (section === "goal") {
-  if (!goalRenderedOnce) {
-    generateGoals();
-    goalRenderedOnce = true;
-  } else {
-    generateGoals();
-  }
-}
+      if (section === "ranking") {
+        // Evita renders dobles por eventos/pintados
+        if (!rankingRenderedOnce) {
+          rankingRenderedOnce = true;
+          generateRanking();
+        } else {
+          generateRanking();
+        }
+      }
+
+      if (section === "goal") {
+        if (!goalRenderedOnce) {
+          goalRenderedOnce = true;
+          generateGoals();
+        } else {
+          generateGoals();
+        }
+      }
+    }
 
     function setMode(mode) {
       championsMode = mode;
@@ -317,7 +309,6 @@ if (section === "goal") {
       const players = await fetchData("./players.json");
       if (!players) return;
 
-      // Orden por más torneos
       players.sort((a, b) => (b.tournaments?.length || 0) - (a.tournaments?.length || 0));
 
       players.forEach(player => {
@@ -415,85 +406,85 @@ if (section === "goal") {
 
     // -----------------------------
     // Ranking 2026 (tabla estilo liga)
-    // expected ranking.json items:
+    // ranking.json items:
     // { name, points, participations, quarters, semis, finals, titles, wo }
     // -----------------------------
- const generateRanking = async () => {
-  const container = document.getElementById("ranking-container");
-  container.innerHTML = "";
+    const generateRanking = async () => {
+      const container = document.getElementById("ranking-container");
+      container.innerHTML = "";
 
-  const q = (document.getElementById("searchRanking").value || "").toLowerCase();
+      const q = (document.getElementById("searchRanking").value || "").toLowerCase();
 
-  const ranking = await fetchData("./ranking.json");
-  if (!ranking) {
-    container.innerHTML = `<div class="panel" style="background: rgba(0,0,0,0.55);">
-      <h4 class="font-weight-bold mb-2">No se encontró ranking.json</h4>
-      <div style="opacity:.9;">Creá el archivo <b>ranking.json</b> en la raíz del sitio.</div>
-    </div>`;
-    return;
-  }
+      const ranking = await fetchData("./ranking.json");
+      if (!ranking) {
+        container.innerHTML = `<div class="panel" style="background: rgba(0,0,0,0.55);">
+          <h4 class="font-weight-bold mb-2">No se encontró ranking.json</h4>
+          <div style="opacity:.9;">Creá el archivo <b>ranking.json</b> en la raíz del sitio.</div>
+        </div>`;
+        return;
+      }
 
-  const rows = ranking
-    .filter(p => !q || (p.name || "").toLowerCase().includes(q))
-    .sort((a, b) => {
-      const dp = num(b.points) - num(a.points);
-      if (dp !== 0) return dp;
+      const rows = ranking
+        .filter(p => !q || (p.name || "").toLowerCase().includes(q))
+        .sort((a, b) => {
+          const dp = num(b.points) - num(a.points);
+          if (dp !== 0) return dp;
 
-      const dt = num(b.titles) - num(a.titles);
-      if (dt !== 0) return dt;
+          const dt = num(b.titles) - num(a.titles);
+          if (dt !== 0) return dt;
 
-      const df = num(b.finals) - num(a.finals);
-      if (df !== 0) return df;
+          const df = num(b.finals) - num(a.finals);
+          if (df !== 0) return df;
 
-      const ds = num(b.semis) - num(a.semis);
-      if (ds !== 0) return ds;
+          const ds = num(b.semis) - num(a.semis);
+          if (ds !== 0) return ds;
 
-      const dqf = num(b.quarters) - num(a.quarters);
-      if (dqf !== 0) return dqf;
+          const dqf = num(b.quarters) - num(a.quarters);
+          if (dqf !== 0) return dqf;
 
-      return num(a.wo) - num(b.wo);
-    });
+          return num(a.wo) - num(b.wo);
+        });
 
-  const card = document.createElement("div");
-  card.className = "rank-card";
+      const card = document.createElement("div");
+      card.className = "rank-card";
 
-  card.innerHTML = `
-    <div class="table-responsive">
-      <table class="table table-dark table-striped mb-0">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Jugador</th>
-            <th>Pts</th>
-            <th>P</th>
-            <th>QF</th>
-            <th>SF</th>
-            <th>F</th>
-            <th>🏆</th>
-            <th>WO</th>
-          </tr>
-        </thead>
-        <tbody>
-          ${rows.map((p, idx) => `
-            <tr>
-              <td><b>${idx + 1}</b></td>
-              <td>${p.name || "-"}</td>
-              <td><b>${num(p.points)}</b></td>
-              <td>${num(p.participations)}</td>
-              <td>${num(p.quarters)}</td>
-              <td>${num(p.semis)}</td>
-              <td>${num(p.finals)}</td>
-              <td>${num(p.titles)}</td>
-              <td>${num(p.wo)}</td>
-            </tr>
-          `).join("")}
-        </tbody>
-      </table>
-    </div>
-  `;
+      card.innerHTML = `
+        <div class="table-responsive">
+          <table class="table table-dark table-striped mb-0">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Jugador</th>
+                <th>Pts</th>
+                <th>P</th>
+                <th>QF</th>
+                <th>SF</th>
+                <th>F</th>
+                <th>🏆</th>
+                <th>WO</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${rows.map((p, idx) => `
+                <tr>
+                  <td><b>${idx + 1}</b></td>
+                  <td>${p.name || "-"}</td>
+                  <td><b>${num(p.points)}</b></td>
+                  <td>${num(p.participations)}</td>
+                  <td>${num(p.quarters)}</td>
+                  <td>${num(p.semis)}</td>
+                  <td>${num(p.finals)}</td>
+                  <td>${num(p.titles)}</td>
+                  <td>${num(p.wo)}</td>
+                </tr>
+              `).join("")}
+            </tbody>
+          </table>
+        </div>
+      `;
 
-  container.appendChild(card);
-};
+      container.appendChild(card);
+    };
 
     // -----------------------------
     // Gol del Mes
@@ -582,7 +573,3 @@ if (section === "goal") {
   </script>
 </body>
 </html>
-
-
-
-
