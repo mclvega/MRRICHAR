@@ -98,6 +98,10 @@
         {
           "name": "Full lloros",
           "trophy": "./cup.png"
+        },
+        {
+          "name": "Torneo 23 Equipos dinstintos",
+          "trophy": "./cup.png"
         }
       ]
   },
